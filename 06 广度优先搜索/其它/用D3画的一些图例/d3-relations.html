@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <style>
+        .link {
+            stroke: #999;
+            stroke-opacity: 0.6;
+        }
+
+        .nodes circle {
+            stroke: #fff;
+            stroke-width: 1.5px;
+        }
+
+        .nodes text {
+            pointer-events: none;
+            font: 10px sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        var svg = d3.select("body").append("svg")
+            .attr("width", 1200)
+            .attr("height", 1200);
+
+        var width = +svg.attr("width");
+        var height = +svg.attr("height");
+
+        var simulation = d3.forceSimulation()
+            .force("link", d3.forceLink().id(function (d) { return d.id; }).distance(600))
+            .force("charge", d3.forceManyBody().strength(-50))
+            .force("center", d3.forceCenter(width / 2, height / 2));
+
+        var graph = {
+            "nodes": [
+                { "id": "孙悟空" }, { "id": "唐僧" }, { "id": "猪八戒" }, { "id": "沙僧" }, { "id": "白龙马" },
+                { "id": "如来佛祖" }, { "id": "观音菩萨" }, { "id": "玉皇大帝" }, { "id": "牛魔王" }, { "id": "铁扇公主" },
+                { "id": "红孩儿" }, { "id": "蜘蛛精" }, { "id": "黄风怪" }, { "id": "二郎神" }, { "id": "白骨精" }
+            ],
+            "links": [
+                { "source": "孙悟空", "target": "铁扇公主" },
+                { "source": "孙悟空", "target": "唐僧" }, { "source": "孙悟空", "target": "猪八戒" },
+                { "source": "孙悟空", "target": "沙僧" }, { "source": "孙悟空", "target": "白龙马" },
+                { "source": "孙悟空", "target": "观音菩萨" }, { "source": "孙悟空", "target": "玉皇大帝" },
+                { "source": "孙悟空", "target": "牛魔王" },
+                { "source": "唐僧", "target": "猪八戒" }, { "source": "唐僧", "target": "沙僧" },
+                { "source": "唐僧", "target": "白龙马" }, { "source": "唐僧", "target": "观音菩萨" },
+                { "source": "猪八戒", "target": "沙僧" }, { "source": "猪八戒", "target": "蜘蛛精" },
+                { "source": "猪八戒", "target": "白骨精" }, { "source": "牛魔王", "target": "铁扇公主" },
+                { "source": "牛魔王", "target": "红孩儿" }, { "source": "铁扇公主", "target": "红孩儿" },
+                { "source": "红孩儿", "target": "二郎神" }, { "source": "孙悟空", "target": "二郎神" },
+                { "source": "二郎神", "target": "玉皇大帝" }, { "source": "白骨精", "target": "孙悟空" },
+                { "source": "如来佛祖", "target": "孙悟空" }, { "source": "观音菩萨", "target": "牛魔王" },
+            ]
+        };
+
+        var link = svg.append("g")
+            .attr("class", "links")
+            .selectAll("line")
+            .data(graph.links)
+            .enter().append("line")
+            .attr("class", "link");
+
+        var node = svg.append("g")
+            .attr("class", "nodes")
+            .selectAll("g")
+            .data(graph.nodes)
+            .enter().append("g")
+
+        var circles = node.append("circle")
+            .attr("r", 5)
+            .call(d3.drag()
+                .on("start", dragstarted)
+                .on("drag", dragged)
+                .on("end", dragended));
+
+        var labels = node.append("text")
+            .text(function (d) {
+                return d.id;
+            })
+            .attr('x', 6)
+            .attr('y', 3);
+
+        node.append("title")
+            .text(function (d) { return d.id; });
+
+        simulation
+            .nodes(graph.nodes)
+            .on("tick", ticked);
+
+        simulation.force("link")
+            .links(graph.links);
+
+        function ticked() {
+            link
+                .attr("x1", function (d) { return d.source.x; })
+                .attr("y1", function (d) { return d.source.y; })
+                .attr("x2", function (d) { return d.target.x; })
+                .attr("y2", function (d) { return d.target.y; });
+
+            node
+                .attr("transform", function (d) {
+                    return "translate(" + d.x + "," + d.y + ")";
+                })
+        }
+
+        function dragstarted(d) {
+            if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+            d.fx = d.x;
+            d.fy = d.y;
+        }
+
+        function dragged(d) {
+            d.fx = d3.event.x;
+            d.fy = d3.event.y;
+        }
+
+        function dragended(d) {
+            if (!d3.event.active) simulation.alphaTarget(0);
+            d.fx = null;
+            d.fy = null;
+        }
+
+    </script>
+</body>
+
+</html>

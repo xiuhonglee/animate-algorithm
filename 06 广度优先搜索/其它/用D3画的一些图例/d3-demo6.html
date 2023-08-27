@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Tree Diagram</title>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <style>
+        .node circle {
+            fill: #fff;
+            stroke: #fff;
+            stroke-width: 3px;
+        }
+
+        .node text {
+            font: 12px sans-serif;
+        }
+
+        .link {
+            fill: none;
+            stroke: #000;
+            stroke-width: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        var data = {
+            name: "Root",
+            children: [
+                {
+                    name: "Child 1", children: [
+                        { name: "Grandchild 1" },
+                        { name: "Grandchild 2" },
+                    ]
+                },
+                {
+                    name: "Child 2",
+                    children: [
+                        { name: "Grandchild 1" },
+                        { name: "Grandchild 2" },
+                    ]
+                },
+                {
+                    name: "Child 3",
+                    children: [
+                        { name: "Grandchild 1" },
+                        { name: "Grandchild 2" },
+                    ]
+                },
+                {
+                    name: "Child 4",
+                    children: [
+                        { name: "Grandchild 1" },
+                        { name: "Grandchild 2" },
+                    ]
+                },
+            ]
+        };
+
+        var margin = { top: 20, right: 90, bottom: 30, left: 90 },
+            width = 960 - margin.left - margin.right,
+            height = 500 - margin.top - margin.bottom;
+
+        var svg = d3.select("body").append("svg")
+            .attr("width", width + margin.right + margin.left)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+        var treeLayout = d3.tree().size([height, width]);
+
+        var root = d3.hierarchy(data);
+
+        treeLayout(root);
+
+        svg.selectAll('lines')
+            .data(root.links())
+            .enter()
+            .append('path')
+            .attr('class', 'link')
+            .attr('d', d3.linkHorizontal()
+                .x(d => d.y)
+                .y(d => d.x)
+            );
+
+        var node = svg.selectAll('.node')
+            .data(root.descendants())
+            .enter()
+            .append('g')
+            .attr('class', 'node')
+            .attr('transform', d => `translate(${d.y},${d.x})`)
+
+        node.append('circle')
+            .attr('r', 10)
+            .style('fill', 'white');
+
+        node.append('text')
+            .text(d => d.data.name)
+            .attr('dx', 10)
+            .attr('dy', -10);
+    </script>
+</body>
+
+</html>

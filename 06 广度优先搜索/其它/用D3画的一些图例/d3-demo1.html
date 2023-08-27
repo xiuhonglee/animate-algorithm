@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Force Directed Graph</title>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <style>
+        body {
+            padding: 20px 0 0;
+            margin: 0;
+            overflow: hidden;
+            position: fixed;
+        }
+
+        .link {
+            stroke: #aaa;
+        }
+
+        .node {
+            stroke: #fff;
+            stroke-width: 1.5px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        var width = window.innerWidth,
+            height = window.innerHeight * 1,
+            nodeRadius = 5;
+
+        var nodesNumber = 20 
+        var linesNumber = 40 
+
+        // Randomly generate data
+        var nodes = Array.from({ length: nodesNumber }, (_, i) => ({ id: i, name: `Node ${i}` }));
+        var links = [];
+
+        for (let i = 0; i < linesNumber; i++) {
+            const source = Math.floor(Math.random() * nodesNumber);
+            let target = Math.floor(Math.random() * nodesNumber);
+
+            while (source === target) {
+                target = Math.floor(Math.random() * nodesNumber);
+            }
+
+            links.push({
+                source: source,
+                target: target
+            });
+        }
+
+        // Create force layout
+        var svg = d3.select("body").append("svg")
+            .attr("width", width)
+            .attr("height", height)
+            .style("background-color", "#77fb55");
+
+        var simulation = d3.forceSimulation()
+            .force("link", d3.forceLink().id(function (d) { return d.id; }).distance(200))
+            .force("charge", d3.forceManyBody().strength(-500))
+            .force("center", d3.forceCenter(width / 2, height / 2));
+
+        var link = svg.append("g")
+            .attr("class", "links")
+            .selectAll("line")
+            .data(links)
+            .enter().append("line")
+            .attr("class", "link")
+            .style("stroke", 'white');
+
+        var node = svg.append("g")
+            .attr("class", "nodes")
+            .selectAll("circle")
+            .data(nodes)
+            .enter().append("circle")
+            .attr("class", "node")
+            .attr("r", nodeRadius)
+
+            .call(d3.drag()
+                .on("start", dragstarted)
+                .on("drag", dragged)
+                .on("end", dragended));
+
+        simulation
+            .nodes(nodes)
+            .on("tick", ticked);
+
+        simulation.force("link")
+            .links(links);
+
+        function ticked() {
+            link
+                .attr("x1", function (d) { return d.source.x; })
+                .attr("y1", function (d) { return d.source.y; })
+                .attr("x2", function (d) { return d.target.x; })
+                .attr("y2", function (d) { return d.target.y; });
+
+            node
+                .attr("cx", function (d) { return d.x = Math.max(nodeRadius, Math.min(width - nodeRadius, d.x)); })
+                .attr("cy", function (d) { return d.y = Math.max(nodeRadius, Math.min(height - nodeRadius, d.y)); });
+        }
+
+        function dragstarted(d) {
+            if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+            d.fx = d.x;
+            d.fy = d.y;
+        }
+
+        function dragged(d) {
+            d.fx = d3.event.x;
+            d.fy = d3.event.y;
+        }
+
+        function dragended(d) {
+            if (!d3.event.active) simulation.alphaTarget(0);
+            d.fx = null;
+            d.fy = null;
+        }
+    </script>
+</body>
+
+</html>

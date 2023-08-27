@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Code Print with Highlight.js</title>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/monokai-sublime.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <!-- and it's easy to individually load additional languages -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+
+    <script>hljs.highlightAll();</script>
+    <style>
+        .float-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+        }
+        .wrapper {
+            /* position: absolute;
+            bottom: 100px; */
+            display: flex;
+            justify-content: flex-start;
+            margin-left: 30px;
+            width: auto;
+        }
+        pre code.hljs {
+            border-radius: .5em !important;
+            padding: 0 3em 1em 0 !important;
+        }
+        body {
+            background: rgb(22,255,39)
+        }
+    </style>
+</head>
+
+<body>
+    <div id="mycode-pre" style="visibility: hidden; height: 0;"></div>
+    <div class="wrapper">
+        <pre><code id="myCode" class="language-python"></code></pre>
+    </div>
+    <button class="float-button" onclick="printCode()">Print Code</button>
+</body>
+
+<script>
+
+    function printCode() {
+        var code = document.getElementById("mycode-pre").textContent;
+        var speed = 10; // 设置输出速度
+
+        // 高亮代码
+        hljs.highlightElement(document.getElementById("myCode"));
+
+        // 模拟打印
+        var index = 0;
+
+        // 设置定时器，每隔 speed 毫秒输出一个字符
+        var timer = setInterval(function () {
+            document.getElementById("myCode").innerHTML += code.charAt(index);
+            index++;
+
+            document.querySelectorAll('pre code').forEach((el) => {
+                hljs.highlightElement(el);
+            });
+
+            if (index === code.length) {
+                clearInterval(timer);
+            }
+        }, speed);
+    }
+
+    // 要打印的代码
+    var code = `
+    # 邻接表存储图
+    graph = {
+        0: {1: 30, 7: 52},
+        1: {0: 30, 7: 35, 2: 60},
+        2: {1: 60, 8: 10, 3: 74, 5: 130},
+        3: {2: 74, 5: 55, 4: 108},
+        4: {3: 108, 5: 50},
+        5: {2: 130, 3: 55, 4: 50, 6: 110},
+        6: {5: 110, 7: 57, 8: 10},
+        7: {0: 52, 1: 35, 8: 48, 6: 57},
+        8: {2: 10, 6: 10, 7: 48}
+    }
+   `;
+
+
+    // 将代码放入 pre 标签中
+    document.getElementById("mycode-pre").textContent = code;
+
+</script>
+
+</html>

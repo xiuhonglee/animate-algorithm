@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Force Directed Graph</title>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+            position: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #77fb55;
+        }
+        .link {
+            stroke: #fff;
+            stroke-width: 0.5px;
+        }
+
+        .node {
+            stroke: #fff;
+            stroke-width: 1.5px;
+        }
+
+        .label {
+            fill: #000;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+<script>
+    var initialNodes = 1,
+        finalNodes = 20,
+        initialLinks = 0,
+        finalLinks = 50,
+        nodeRadius = 5,
+        padding = 10,
+        duration = 30000, // duration of the animation in ms
+        characters = ["孙悟空", "唐僧", "猪八戒", "沙和尚", "白龙马", "观音", "如来佛祖", "玉皇大帝", "李天王", "哪吒", "二郎神", "狐狸精", "蜘蛛精", "黄风怪", "红孩儿", "牛魔王", "铁扇公主", "蜈蚣精", "九头虫", "白骨精"];
+
+    var width = window.innerWidth,
+        height = window.innerHeight * 0.8;
+
+    var nodes = Array.from({length: initialNodes}, (_, i) => ({id: i, name: characters[i]}));
+    var links = Array.from({length: initialLinks}, () => ({
+        source: Math.floor(Math.random() * initialNodes),
+        target: Math.floor(Math.random() * initialNodes)
+    }));
+
+    var svg = d3.select("body").append("svg")
+        .attr("width", width)
+        .attr("height", height)
+        .style("background-color", "transparent");
+
+    var simulation = d3.forceSimulation()
+        .force("link", d3.forceLink().id(function(d) { return d.id; }).distance(200))
+        .force("charge", d3.forceManyBody().strength(-500))
+        .force("center", d3.forceCenter(width / 2, height / 2));
+
+    var link = svg.append("g")
+        .attr("class", "links")
+        .selectAll("line")
+        .data(links)
+        .enter().append("line")
+        .attr("class", "link");
+
+    var node = svg.append("g")
+        .attr("class", "nodes")
+        .selectAll("circle")
+        .data(nodes)
+        .enter().append("circle")
+        .attr("class", "node")
+        .attr("r", nodeRadius)
+        .call(d3.drag()
+            .on("start", dragstarted)
+            .on("drag", dragged)
+            .on("end", dragended));
+
+    var label = svg.append("g")
+        .attr("class", "labels")
+        .selectAll("text")
+        .data(nodes)
+        .enter().append("text")
+        .attr("class", "label")
+        .attr("transform", "translate(10,3)")
+        .text(function(d) { return d.name; });
+
+    simulation
+        .nodes(nodes)
+        .on("tick", ticked);
+
+    simulation.force("link")
+        .links(links);
+
+    function ticked() {
+        link
+            .attr("x1", function(d) { return d.source.x; })
+            .attr("y1", function(d) { return d.source.y; })
+            .attr("x2", function(d) { return d.target.x; })
+            .attr("y2", function(d) { return d.target.y; });
+
+        node
+            .attr("cx", function(d) { return d.x = Math.max(nodeRadius + padding, Math.min(width - nodeRadius - padding, d.x)); })
+            .attr("cy", function(d) { return d.y = Math.max(nodeRadius + padding, Math.min(height - nodeRadius - padding, d.y)); });
+
+        label
+            .attr("x", function(d) { return d.x; })
+            .attr("y", function(d) { return d.y; });
+    }
+
+    function dragstarted(d) {
+        if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+        d.fx = d.x;
+        d.fy = d.y;
+    }
+
+    function dragged(d) {
+        d.fx = d3.event.x;
+        d.fy = d3.event.y;
+    }
+
+    function dragended(d) {
+        if (!d3.event.active) simulation.alphaTarget(0);
+        d.fx = null;
+        d.fy = null;
+    }
+
+    // Start the animation
+    var nodeInterval = duration / (finalNodes - initialNodes);
+    var linkInterval = duration / (finalLinks - initialLinks);
+
+    var nodeTimer = setInterval(function() {
+        if (nodes.length >= finalNodes) {
+            clearInterval(nodeTimer);
+        } else {
+            nodes.push({id: nodes.length, name: characters[nodes.length]});
+            restart();
+        }
+    }, nodeInterval);
+
+    var linkTimer = setInterval(function() {
+        if (links.length >= finalLinks) {
+            clearInterval(linkTimer);
+        } else {
+            links.push({source: Math.floor(Math.random() * nodes.length), target: Math.floor(Math.random() * nodes.length)});
+            restart();
+        }
+    }, linkInterval);
+
+    function restart() {
+        node = node.data(nodes, function(d) { return d.id; });
+        node.exit().remove();
+        node = node.enter().append("circle")
+            .attr("class", "node")
+            .attr("r", nodeRadius)
+            .merge(node)
+            .call(d3.drag()
+                .on("start", dragstarted)
+                .on("drag", dragged)
+                .on("end", dragended));
+
+        link = link.data(links, function(d) { return d.source.id + "-" + d.target.id; });
+        link.exit().remove();
+        link = link.enter().append("line")
+            .attr("class", "link")
+            .merge(link);
+
+        label = label.data(nodes, function(d) { return d.id; });
+        label.exit().remove();
+        label = label.enter().append("text")
+            .attr("class", "label")
+            .attr("transform", "translate(10,3)")
+            .text(function(d) { return d.name; })
+            .merge(label);
+
+        simulation.nodes(nodes);
+        simulation.force("link").links(links);
+        simulation.alpha(1).restart();
+    }
+
+</script>
+</body>
+</html>

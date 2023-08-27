@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>D3 Graph</title>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <style>
+    .links line {
+      stroke: #999;
+      stroke-opacity: 0.6;
+    }
+    .nodes circle {
+      stroke: #fff;
+      stroke-width: 1.5px;
+    }
+  </style>
+</head>
+<body>
+  <button onclick="startDijkstra()">Start Dijkstra</button>
+  <script>
+    var svg = d3.select("body").append("svg")
+        .attr("width", window.innerWidth)
+        .attr("height", window.innerHeight);
+
+    var simulation = d3.forceSimulation()
+        .force("link", d3.forceLink().id(function(d) { return d.id; }))
+        .force("charge", d3.forceManyBody())
+        .force("center", d3.forceCenter(window.innerWidth / 2, window.innerHeight / 2));
+
+    var graph = {
+        nodes: Array.from({length: 250}).map((_, id) => ({id})),
+        links: Array.from({length: 500}).map(() => ({
+            source: Math.floor(Math.random() * 250),
+            target: Math.floor(Math.random() * 250)
+        }))
+    };
+
+    var link = svg.append("g")
+        .attr("class", "links")
+        .selectAll("line")
+        .data(graph.links)
+        .enter().append("line");
+
+    var node = svg.append("g")
+        .attr("class", "nodes")
+        .selectAll("circle")
+        .data(graph.nodes)
+        .enter().append("circle")
+        .attr("r", 5);
+
+    simulation
+        .nodes(graph.nodes)
+        .on("tick", ticked);
+
+    simulation.force("link")
+        .links(graph.links);
+
+    function ticked() {
+        link
+            .attr("x1", function(d) { return d.source.x; })
+            .attr("y1", function(d) { return d.source.y; })
+            .attr("x2", function(d) { return d.target.x; })
+            .attr("y2", function(d) { return d.target.y; });
+
+        node
+            .attr("cx", function(d) { return d.x; })
+            .attr("cy", function(d) { return d.y; });
+    }
+
+    function startDijkstra() {
+        var nodesToVisit = graph.nodes.slice(); // Copy the array
+        var interval = setInterval(function() {
+            if (nodesToVisit.length == 0) {
+                clearInterval(interval); // Stop the interval
+                return;
+            }
+            var nodeIndex = Math.floor(Math.random() * nodesToVisit.length);
+            var nodeId = nodesToVisit[nodeIndex].id;
+            nodesToVisit.splice(nodeIndex, 1); // Remove the node from the array
+
+            // Change the color of the node
+            node.filter(d => d.id === nodeId).style("fill", "red");
+
+            // Change the color of the links
+            link.filter(d => d.source.id === nodeId || d.target.id === nodeId).style("stroke", "red");
+        }, 30 * 1000 / graph.nodes.length); // Spread the changes over 30 seconds
+    }
+  </script>
+</body>
+</html>

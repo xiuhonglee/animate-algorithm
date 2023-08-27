@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LCS DP Table with D3.js</title>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+</head>
+
+<body>
+    <script>
+        // X and Y sequences
+        const X = "ATCGGATTG";
+        //const Y = "ATAZ";
+        //const Y = "ACGTY";
+        const Y = "ATCGAZ";
+
+        // Font size variable
+        const fontSize = 32; // You can adjust this
+
+        // Calculate DP table for LCS
+        const m = X.length;
+        const n = Y.length;
+        const dp = Array(m + 1).fill(0).map(() => Array(n + 1).fill(0));
+
+        for (let i = 1; i <= m; i++) {
+            for (let j = 1; j <= n; j++) {
+                if (X[i - 1] === Y[j - 1]) {
+                    dp[i][j] = dp[i - 1][j - 1] + 1;
+                } else {
+                    dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+                }
+            }
+        }
+
+        // Create SVG canvas
+        const margin = { top: 50, right: 50, bottom: 50, left: 50 };
+        const cellSize = 30 * 2;
+        const width = (m + 1) * cellSize + margin.left + margin.right;
+        const height = (n + 1) * cellSize + margin.top + margin.bottom;
+
+        const svg = d3.select("body")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height);
+
+        // Draw DP table
+        for (let j = 0; j <= n; j++) {
+            for (let i = 0; i <= m; i++) {
+                svg.append("rect")
+                    .attr("x", i * cellSize + margin.left)
+                    .attr("y", j * cellSize + margin.top)
+                    .attr("width", cellSize)
+                    .attr("height", cellSize)
+                    .style("fill", "none")
+                    .style("stroke", "black");
+
+                svg.append("text")
+                    .attr("x", i * cellSize + margin.left + cellSize / 2)
+                    .attr("y", j * cellSize + margin.top + cellSize / 2)
+                    .attr("dy", ".35em")
+                    .attr("text-anchor", "middle")
+                    .attr("font-size", fontSize + "px")
+                    .text(() => {
+                        if (j === 0 && i > 0) return X[i - 1];
+                        if (i === 0 && j > 0) return Y[j - 1];
+                        return dp[i][j];
+                    });
+            }
+        }
+
+    </script>
+</body>
+
+</html>
+
