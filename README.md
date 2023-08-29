@@ -6,7 +6,13 @@
 
 1. [第一章节 - 算法简介](#第一章节---二分查找)
 2. [第二章节 - 选择排序](#第二章节---选择排序)
-5. ...（其他章节）
+3. [第三章节 - 递归](#第三章节---递归)
+4. [第四章节 - 快速排序](#第四章节---快速排序)
+5. [第五章节 - 散列表](#第五章节---散列表)
+6. [第六章节 - 广度优先搜索](#第六章节---广度优先搜索)
+7. [第七章节 - 迪杰斯特拉算法](#第七章节---迪杰斯特拉算法)
+8. [第八章节 - 贪心算法](#第八章节---贪心算法)
+9. [第九章节 - 动态规划](#第九章节---动态规划)
 
 ---
 
@@ -15,7 +21,7 @@
 - **视频链接**: [YouTube](https://www.youtube.com/watch?v=cSRP53XTAUg&t=35s)
 - **代码**: [二分查找](01/binary_search.py)
 
-本章介绍了二分查找算法，它是一种非常高效的查找算法。对应的Python代码在 `01/binary_search.py`。
+本章介绍了二分查找算法，它是一种非常高效的查找算法，时间复杂度为对数时间O(logn).
 
 ---
 
@@ -23,8 +29,67 @@
 
 - **视频链接**: [YouTube](https://www.youtube.com/watch?v=kADv-ueOre0)
 - **代码**: 
-    - [选择排序-数组实现(不稳定).py](02/selection_sort_arr.py)
-    - [选择排序-链表实现(稳定).py](02/selection_sort_linked_list.py)
+    - [选择排序-数组实现(不稳定)](02/selection_sort_arr.py)
+    - [选择排序-链表实现(稳定)](02/selection_sort_linked_list.py)
+---
+
+### 第三章节 - 递归
+
+- **视频链接**: [YouTube](https://www.youtube.com/watch?v=kADv-ueOre0)
+- **代码**: 
+    - [求第N个斐波那契数-递归形式](03/fibonacci.py)
+    - [求第N个斐波那契数-循环形式](03/fibonacci_loop.py)
+    - [求第N个斐波那契数-尾递归形式](03/fibonacci_tail.py)
+---
+
+### 第四章节 - 快速排序
+
+- **视频链接**: [YouTube](https://www.youtube.com/watch?v=kADv-ueOre0)
+- **代码**: 
+    - [快速排序-原地(in-place)排序法](04/quick_sort.py)
+    - [快速排序-替代递归的循环方式](04/quick_sort_loop.py)
+---
+
+### 第五章节 - 散列表
+
+- **视频链接**: [YouTube](https://www.youtube.com/watch?v=kADv-ueOre0)
+- **代码**: 
+    - [选择排序-数组实现(不稳定)](02/selection_sort_arr.py)
+    - [选择排序-链表实现(稳定)](02/selection_sort_linked_list.py)
+---
+
+### 第六章节 - 广度优先搜索
+
+- **视频链接**: [YouTube](https://www.youtube.com/watch?v=kADv-ueOre0)
+- **代码**: 
+    - [选择排序-数组实现(不稳定)](02/selection_sort_arr.py)
+    - [选择排序-链表实现(稳定)](02/selection_sort_linked_list.py)
+---
+
+
+### 第七章节 - 迪杰斯特拉算法
+
+- **视频链接**: [YouTube](https://www.youtube.com/watch?v=kADv-ueOre0)
+- **代码**: 
+    - [选择排序-数组实现(不稳定)](02/selection_sort_arr.py)
+    - [选择排序-链表实现(稳定)](02/selection_sort_linked_list.py)
+---
+
+### 第八章节 - 贪心算法
+
+- **视频链接**: [YouTube](https://www.youtube.com/watch?v=kADv-ueOre0)
+- **代码**: 
+    - [选择排序-数组实现(不稳定)](02/selection_sort_arr.py)
+    - [选择排序-链表实现(稳定)](02/selection_sort_linked_list.py)
+---
+
+
+### 第九章节 - 动态规划
+
+- **视频链接**: [YouTube](https://www.youtube.com/watch?v=kADv-ueOre0)
+- **代码**: 
+    - [选择排序-数组实现(不稳定)](02/selection_sort_arr.py)
+    - [选择排序-链表实现(稳定)](02/selection_sort_linked_list.py)
 ---
 
 

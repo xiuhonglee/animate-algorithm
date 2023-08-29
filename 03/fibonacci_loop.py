@@ -1,5 +1,4 @@
-
-
+# 采用循环的方式求第N个斐波那契数
 def fibonacci_loop(n):
     if n <= 0:
         return 0
