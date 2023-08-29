@@ -6,22 +6,24 @@
 
 1. [第一章节 - 算法简介](#第一章节---二分查找)
 2. [第二章节 - 选择排序](#第二章节---选择排序)
-3. [第三章节 - 递归](#第三章节---递归)
-4. [第四章节 - 快速排序](#第四章节---快速排序)
 5. ...（其他章节）
 
 ---
 
-### 第一章节 - 二分查找
+### 第一章节 - 算法简介
 
 - **视频链接**: [YouTube](https://www.youtube.com/watch?v=cSRP53XTAUg&t=35s)
-- **代码**: [01/binary_search.py](01/binary_search.py)
+- **代码**: [二分查找.py](01/binary_search.py)
 
 本章介绍了二分查找算法，它是一种非常高效的查找算法。对应的Python代码在 `01/binary_search.py`。
 
 ---
 
-### ...（其他章节）
+### 第二章节 - 选择排序
+
+- **视频链接**: [YouTube](https://www.youtube.com/watch?v=kADv-ueOre0)
+- **代码**: [二分查找-数组实现(不稳定).py](02/selection_sort_arr.py)
+- **代码**: [二分查找-链表实现(稳定).py](02/selection_sort_linked_list.py)
 
 ---
 
