@@ -125,15 +125,31 @@
 - **旅行商(TSP)问题代码**:
   - [旅行商问题-贪心算法实现](08/travle.py)
 
-
 ---
 
 ### 第九章节 - 动态规划
 
 - **视频链接**: [YouTube-待办](https://www.youtube.com/channel/UCEQYL59kx9bYBnZm5pdIhEg)
-- **代码**:
-  - [选择排序-数组实现(不稳定)](02/selection_sort_arr.py)
-  - [选择排序-链表实现(稳定)](02/selection_sort_linked_list.py)
+- **Fibonacci相关代码**:
+  - [fibonacci-递归实现](09/fibonacci.py)
+  - [fibonacci-备忘录法优化](09/fibonacci_memo.py)
+  - [fibonacci-自底向上优化](09/fibonacci_bottom_up.py)
+
+- **背包问题相关代码**:
+  - [0-1背包-二维DP表实现](09/knapsack.py)
+  - [0-1背包-二维DP表(颠倒横轴轴)实现](09/knapsack_transposed.py)
+  - [0-1背包-一维DP表实现](09/knapsack_1D.py)
+  - [0-1背包(分割等和子集)](09/canPartition.py)
+
+  - [完全背包(硬币找零)-二维DP表实现](09/coinChange_2D.py)
+  - [完全背包(硬币找零)-一维DP表实现](09/coinChange.py)
+
+  - [分数背包-实现](09/fractional_knapsack.py)
+
+- **最长公共子序列(LCS)相关代码**:
+  - [LCS-二维DP表实现](09/longestCommonSubsequence_with_path.py)
+  - [LCS-一维DP表实现](09/longestCommonSubsequence_with_path_1D.py)
+  - [LCS-只判断是否存在最长公共子序列](09/longestCommonSubsequence_without_path_1D.py)
 
 ---
 
