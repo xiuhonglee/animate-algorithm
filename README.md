@@ -137,7 +137,7 @@
 
 - **背包问题相关代码**:
   - [0-1背包-二维DP表实现](09/knapsack.py)
-  - [0-1背包-二维DP表(颠倒横轴轴)实现](09/knapsack_transposed.py)
+  - [0-1背包-二维DP表(颠倒横纵轴)实现](09/knapsack_transposed.py)
   - [0-1背包-一维DP表实现](09/knapsack_1D.py)
   - [0-1背包(分割等和子集)](09/canPartition.py)
 
