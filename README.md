@@ -98,25 +98,39 @@
 
 ### 第七章节 - 迪杰斯特拉算法
 
-- **视频链接**: [YouTube](https://www.youtube.com/watch?v=kADv-ueOre0)
+- **视频链接**: [YouTube-待办](https://www.youtube.com/channel/UCEQYL59kx9bYBnZm5pdIhEg)
 - **代码**:
-  - [选择排序-数组实现(不稳定)](02/selection_sort_arr.py)
-  - [选择排序-链表实现(稳定)](02/selection_sort_linked_list.py)
+  - [Dijstra(simple): 只计算最短距离，不存储最短路径](07/dijkstra.py)
+  - [Dijstra: 计算最短距离且保存最短路径](07/dijkstra2.py)
 
 ---
 
 ### 第八章节 - 贪心算法
 
-- **视频链接**: [YouTube](https://www.youtube.com/watch?v=kADv-ueOre0)
-- **代码**:
-  - [选择排序-数组实现(不稳定)](02/selection_sort_arr.py)
-  - [选择排序-链表实现(稳定)](02/selection_sort_linked_list.py)
+- **视频链接**: [YouTube-待办](https://www.youtube.com/channel/UCEQYL59kx9bYBnZm5pdIhEg)
+
+- **教室排课代码**:
+  - [教室排课](08/classroom_scheduling.py)
+  - [教室排课-按结束时间(正确)](08/sort_by_end_time.py)
+  - [教室排课-按开始时间(错误)](08/sort_by_start_time.py)
+
+- **0-1背包问题代码**:
+  - [背包问题-贪心算法实现](08/knapsack_greedy.py)
+  - [背包问题-动态规划实现](08/knapsack_dp.py)
+
+- **集合覆盖问题代码**:
+  - [集合覆盖问题-简单方式(慢，结果准确)](08/simple_way_solve_set_covering_problem.py)
+  - [集合覆盖问题-贪心算法(快，结果近似，不保证完全正确)](08/greedy_algorithm_solve_set_covering_problem.py)
+
+- **旅行商(TSP)问题代码**:
+  - [旅行商问题-贪心算法实现](08/travle.py)
+
 
 ---
 
 ### 第九章节 - 动态规划
 
-- **视频链接**: [YouTube](https://www.youtube.com/watch?v=kADv-ueOre0)
+- **视频链接**: [YouTube-待办](https://www.youtube.com/channel/UCEQYL59kx9bYBnZm5pdIhEg)
 - **代码**:
   - [选择排序-数组实现(不稳定)](02/selection_sort_arr.py)
   - [选择排序-链表实现(稳定)](02/selection_sort_linked_list.py)

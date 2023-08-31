@@ -1,6 +1,5 @@
 # 只计算最短路径，不保存最短路径
 
-
 import heapq
 
 def dijkstra(graph, start):
