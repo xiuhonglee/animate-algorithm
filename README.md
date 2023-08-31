@@ -36,7 +36,7 @@
 
 ### 第三章节 - 递归
 
-- **视频链接**: [YouTube](https://www.youtube.com/watch?v=kADv-ueOre0)
+- **视频链接**: [YouTube-待办](https://www.youtube.com/channel/UCEQYL59kx9bYBnZm5pdIhEg)
 - **代码**:
   - [求第 N 个斐波那契数-递归形式](03/fibonacci.py)
   - [求第 N 个斐波那契数-循环形式](03/fibonacci_loop.py)
@@ -46,7 +46,7 @@
 
 ### 第四章节 - 快速排序
 
-- **视频链接**: [YouTube](https://www.youtube.com/watch?v=kADv-ueOre0)
+- **视频链接**: [YouTube-待办](https://www.youtube.com/channel/UCEQYL59kx9bYBnZm5pdIhEg)
 - **代码**:
   - [归并排序](04/merge_sort.py)
   - [快速排序-原地(in-place)排序法](04/quick_sort.py)
@@ -63,20 +63,37 @@
 
 ### 第五章节 - 散列表
 
-- **视频链接**: [YouTube](https://www.youtube.com/watch?v=kADv-ueOre0)
+- **视频链接**: [YouTube-待办](https://www.youtube.com/channel/UCEQYL59kx9bYBnZm5pdIhEg)
 - **代码**:
-  - [选择排序-数组实现(不稳定)](02/selection_sort_arr.py)
-  - [选择排序-链表实现(稳定)](02/selection_sort_linked_list.py)
+  - [散列表-python自带](05/demo.py)
+  - [散列表-(开散列)拉链法实现](05/ChaingHashTable.py)
+  - [选择排序-(闭散列)线性探测法](05/LinearProbeHashTable.py)
+  - [RabinKarp算法-模式匹配](05/RabinKarp.py)
 
 ---
 
 ### 第六章节 - 广度优先搜索
 
-- **视频链接**: [YouTube](https://www.youtube.com/watch?v=kADv-ueOre0)
-- **代码**:
-  - [选择排序-数组实现(不稳定)](02/selection_sort_arr.py)
-  - [选择排序-链表实现(稳定)](02/selection_sort_linked_list.py)
+- **视频链接**: [YouTube-待办](https://www.youtube.com/channel/UCEQYL59kx9bYBnZm5pdIhEg)
 
+- **图相关代码**:
+  - [图的实现](06/graph/graph.py)
+  - [有向图的实现](06/graph/DirectedGraph.py)
+  - [权重图的实现](06/graph/WeightedGraph.py)
+  - [图的存储-链表](06/graphStore/graph_list.py)
+  - [图的存储-矩阵(二维数组)](06/graphStore/graph_matrix.py)
+
+- **队列相关代码**:
+  - [简单的队列实现](06/bfs/simpleQueue.py)
+
+- **广度优先搜索(BFS)相关代码**:
+  - [BFS-搜索](06/bfs/bfs-search.py)
+  - [BFS-遍历](06/bfs/bfs-traverse.py)
+
+- **关于图的第三方库代码**:
+  - [igraph-demo](06/graphLibOfPython/igraph_demo1.py)
+  - [networkx-demo1](06/graphLibOfPython/networkx_demo1.py)
+  - [networkx-demo2](06/graphLibOfPython/networkx_demo2.py)
 ---
 
 ### 第七章节 - 迪杰斯特拉算法
