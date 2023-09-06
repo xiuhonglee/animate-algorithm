@@ -1,51 +1,53 @@
-# 二分查找法函数实现
+# 定义二分查找函数
 def binary_search(arr, target):
     """
-    在排序数组 arr 中查找目标值 target，返回其索引。
-    如果目标值不存在，则返回 -1。
-    
-    参数：
-    arr -- 排序数组
-    target -- 目标值
-    
-    返回：
-    目标值的索引，或者 -1（目标值不存在）
-    """
-    # 初始化左右指针
-    left, right = 0, len(arr) - 1
+    二分查找算法
 
-    # 当左指针小于或等于右指针时进行查找
+    参数:
+        arr: 一个已排序的列表
+        target: 要查找的目标值
+
+    返回:
+        目标值在列表中的索引，如果没有找到则返回-1
+    """
+    # 初始化左指针和右指针
+    left = 0
+    right = len(arr) - 1
+
+    # 当左指针小于或等于右指针时，执行循环
     while left <= right:
         # 计算中间索引
-        mid = left + (right - left) // 2
+        mid = (left + right) // 2
 
-        # 找到目标值，返回索引
+        # 如果中间元素等于目标值，则返回中间索引
         if arr[mid] == target:
             return mid
-        # 如果目标值小于中间值，将右指针移动到中间索引的左侧
-        elif arr[mid] > target:
-            right = mid - 1
-        # 如果目标值大于中间值，将左指针移动到中间索引的右侧
-        else:
+        # 如果中间元素小于目标值，调整左指针到mid+1
+        elif arr[mid] < target:
             left = mid + 1
+        # 如果中间元素大于目标值，调整右指针到mid-1
+        else:
+            right = mid - 1
 
-    # 目标值不存在
+    # 如果没有找到目标值，返回-1
     return -1
 
 # 测试用例
-if __name__ == "__main__":
-    arr1 = [1, 3, 5, 7, 9]
-    target1 = 5
-    print("Test Case 1: ", binary_search(arr1, target1))  # 应返回 2
+if __name__ == '__main__':
+    # 已排序的列表
+    test_arr = [1, 3, 5, 7, 9, 11, 13, 15, 17]
 
-    arr2 = [1, 3, 5, 7, 9]
-    target2 = 6
-    print("Test Case 2: ", binary_search(arr2, target2))  # 应返回 -1
+    # 测试查找存在的元素
+    assert binary_search(test_arr, 7) == 3
 
-    arr3 = []
-    target3 = 1
-    print("Test Case 3: ", binary_search(arr3, target3))  # 应返回 -1
+    # 测试查找不存在的元素
+    assert binary_search(test_arr, 8) == -1
 
-    arr4 = [1]
-    target4 = 1
-    print("Test Case 4: ", binary_search(arr4, target4))  # 应返回 0
+    # 测试查找列表首元素
+    assert binary_search(test_arr, 1) == 0
+
+    # 测试查找列表尾元素
+    assert binary_search(test_arr, 17) == 8
+
+    print("所有测试用例通过!")
+
