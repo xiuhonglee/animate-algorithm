@@ -20,13 +20,14 @@ knn.fit(ratings)
 current_user_rating = np.array([[3, 0, 5, 0, 3]])
 distances, indices = knn.kneighbors(current_user_rating)
 
-# 基于最近邻用户的评分来推荐电影
-# 我们推荐评分最高且当前用户未评分的电影
-mean_rating = np.mean(ratings[indices], axis=1)
-recommended_movie_index = np.argmax(mean_rating)
+# 计算平均评分，但要忽略评分为0的部分
+neighbors_ratings = ratings[indices][0]  # 提取邻居的评分
+sum_ratings = np.sum(neighbors_ratings, axis=0)
+count_nonzero = np.count_nonzero(neighbors_ratings, axis=0)
 
-print(f"推荐电影索引为: {recommended_movie_index}")
+# 避免除以0
+mean_ratings = np.divide(sum_ratings, count_nonzero, out=np.zeros_like(sum_ratings, dtype=float), where=count_nonzero != 0)
 
-# 注意：此示例为简化版，实际应用中需考虑更多因素和优化。
-
-
+# 打印出2号和4号电影（索引1和3）的预测评分
+print(f"预测的2号电影评分为: {mean_ratings[1]}")
+print(f"预测的4号电影评分为: {mean_ratings[3]}")
