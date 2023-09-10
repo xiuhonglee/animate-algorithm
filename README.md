@@ -114,7 +114,7 @@
 
 - **视频链接**: 
   - [YouTube-待办](https://www.youtube.com/watch?v=Zw2hw9gSxdc)
-  - [bilibili](https://www.bilibili.com/list/472759461)
+  - [bilibili](https://www.bilibili.com/list/472759461?sid=3611407&desc=1&oid=320659026&bvid=BV1Aw411U7mf)
 
 - **教室排课代码**:
   - [教室排课](08/classroom_scheduling.py)
