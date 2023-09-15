@@ -1,7 +1,10 @@
+
+from sklearn.neighbors import NearestNeighbors
+from sklearn.decomposition import PCA
 import numpy as np
 import matplotlib.pyplot as plt
-from sklearn.decomposition import PCA
-from sklearn.neighbors import NearestNeighbors
+
+
 
 # 模拟的数据：5部电影，5位用户
 ratings = np.array([
@@ -15,6 +18,8 @@ ratings = np.array([
 # 使用KNN找到与当前用户最相似的用户
 # 这里我们设定为5个最近邻居来得到所有5位用户的距离
 knn = NearestNeighbors(n_neighbors=5, metric='cosine', algorithm='brute')
+
+
 knn.fit(ratings)
 
 # 假设当前用户的评分是：[3, 0, 5, 0, 3]

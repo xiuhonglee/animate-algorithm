@@ -13,7 +13,9 @@ ratings = np.array([
 
 # 使用KNN找到与当前用户最相似的用户
 # 这里选择3个最近邻居
+
 knn = NearestNeighbors(n_neighbors=3, metric='cosine', algorithm='brute')
+
 knn.fit(ratings)
 
 # 假设当前用户的评分是：[3, 0, 5, 0, 3]
