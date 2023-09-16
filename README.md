@@ -1,6 +1,6 @@
 # 动画解析《算法图解》代码仓库
 
-欢迎来到本 GitHub 仓库！这里包含了与我的 YouTube 视频系列“动画解析《算法图解》”相关的所有代码。每个章节都有对应的 Python 代码示例，帮助你更好地理解和掌握算法。
+欢迎来到本 GitHub 仓库！这里包含了与我的 B站 视频系列“动画解析《算法图解》”相关的所有代码。每个章节都有对应的 Python 代码示例，帮助你更好地理解和掌握算法。
 
 ## 目录
 
@@ -21,7 +21,7 @@
 
 - **视频链接**: 
   - [YouTube](https://www.youtube.com/watch?v=cSRP53XTAUg&t=35s)
-  - [bilibili](https://space.bilibili.com/472759461/channel/seriesdetail?sid=3611407)
+  - [bilibili](https://www.bilibili.com/video/BV1Aw411U7mf/?spm_id_from=333.999.0.0&vd_source=42e7dc7e5ebb14d27d2434b00ff63157)
 - **代码**: [二分查找](01/binary_search.py)
 
 ---
@@ -30,7 +30,7 @@
 
 - **视频链接**: 
   - [YouTube](https://www.youtube.com/watch?v=kADv-ueOre0&t=19s)
-  - [bilibili](https://space.bilibili.com/472759461/channel/seriesdetail?sid=3611407)
+  - [bilibili](https://www.bilibili.com/video/BV1Aw411U7mf/?spm_id_from=333.999.0.0&vd_source=42e7dc7e5ebb14d27d2434b00ff63157)
 - **代码**:
   - [选择排序-数组实现(不稳定)](02/selection_sort_arr.py)
   - [选择排序-链表实现(稳定)](02/selection_sort_linked_list.py)
@@ -41,7 +41,7 @@
 
 - **视频链接**: 
   - [YouTube](https://www.youtube.com/watch?v=wwvAt35gKTc)
-  - [bilibili](https://space.bilibili.com/472759461/channel/seriesdetail?sid=3611407)
+  - [bilibili](https://www.bilibili.com/video/BV1Aw411U7mf/?spm_id_from=333.999.0.0&vd_source=42e7dc7e5ebb14d27d2434b00ff63157)
 - **代码**:
   - [求第 N 个斐波那契数-递归形式](03/fibonacci.py)
   - [求第 N 个斐波那契数-循环形式](03/fibonacci_loop.py)
@@ -53,7 +53,7 @@
 
 - **视频链接**: 
   - [YouTube](https://www.youtube.com/watch?v=iMSmU3Fy16U)
-  - [bilibili](https://space.bilibili.com/472759461/channel/seriesdetail?sid=3611407)
+  - [bilibili](https://www.bilibili.com/video/BV1Aw411U7mf/?spm_id_from=333.999.0.0&vd_source=42e7dc7e5ebb14d27d2434b00ff63157)
 - **代码**:
   - [归并排序](04/merge_sort.py)
   - [快速排序-原地(in-place)排序法](04/quick_sort.py)
@@ -65,7 +65,7 @@
 
 - **视频链接**: 
   - [YouTube](https://www.youtube.com/watch?v=RSF_w99ZDQA)
-  - [bilibili](https://space.bilibili.com/472759461/channel/seriesdetail?sid=3611407)
+  - [bilibili](https://www.bilibili.com/video/BV1Aw411U7mf/?spm_id_from=333.999.0.0&vd_source=42e7dc7e5ebb14d27d2434b00ff63157)
 - **代码**:
   - [散列表-python自带](05/demo.py)
   - [散列表-(开散列)拉链法实现](05/ChaingHashTable.py)
@@ -78,7 +78,7 @@
 
 - **视频链接**: 
   - [YouTube](https://www.youtube.com/watch?v=c_0J8v5wPzg)
-  - [bilibili](https://space.bilibili.com/472759461/channel/seriesdetail?sid=3611407)
+  - [bilibili](https://www.bilibili.com/video/BV1Aw411U7mf/?spm_id_from=333.999.0.0&vd_source=42e7dc7e5ebb14d27d2434b00ff63157)
 
 - **图相关代码**:
   - [图的实现](06/graph/graph.py)
@@ -104,7 +104,7 @@
 
 - **视频链接**: 
   - [YouTube](https://www.youtube.com/watch?v=_NiRuU0sml4)
-  - [bilibili](https://space.bilibili.com/472759461/channel/seriesdetail?sid=3611407)
+  - [bilibili](https://www.bilibili.com/video/BV1Aw411U7mf/?spm_id_from=333.999.0.0&vd_source=42e7dc7e5ebb14d27d2434b00ff63157)
 - **代码**:
   - [Dijstra(simple): 只计算最短距离，不存储最短路径](07/dijkstra.py)
   - [Dijstra: 计算最短距离且保存最短路径](07/dijkstra2.py)
@@ -115,7 +115,7 @@
 
 - **视频链接**: 
   - [YouTube](https://www.youtube.com/watch?v=Zw2hw9gSxdc)
-  - [bilibili](https://space.bilibili.com/472759461/channel/seriesdetail?sid=3611407)
+  - [bilibili](https://www.bilibili.com/video/BV1Aw411U7mf/?spm_id_from=333.999.0.0&vd_source=42e7dc7e5ebb14d27d2434b00ff63157)
 
 - **教室排课代码**:
   - [教室排课](08/classroom_scheduling.py)
@@ -139,7 +139,7 @@
 
 - **视频链接**: 
   - [YouTube](https://www.youtube.com/watch?v=ojkJUv4_e4A)
-  - [bilibili](https://space.bilibili.com/472759461/channel/seriesdetail?sid=3611407)
+  - [bilibili](https://www.bilibili.com/video/BV1Aw411U7mf/?spm_id_from=333.999.0.0&vd_source=42e7dc7e5ebb14d27d2434b00ff63157)
 - **Fibonacci相关代码**:
   - [fibonacci-递归实现](09/fibonacci.py)
   - [fibonacci-备忘录法优化](09/fibonacci_memo.py)
@@ -164,6 +164,11 @@
 ---
 
 ### 第十章节 - K-近邻算法
+- **视频链接**: 
+  - [YouTube](https://www.youtube.com/watch?v=d37htVnobls)
+  - [bilibili](https://www.bilibili.com/video/BV1Aw411U7mf/?spm_id_from=333.999.0.0&vd_source=42e7dc7e5ebb14d27d2434b00ff63157)
+
+- **电影推荐系统相关代码**
   - [电影推荐系统-计算距离](10/distance.py)
   - [电影推荐系统-预测评分](10/recommendation_system.py)
 
