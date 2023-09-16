@@ -162,6 +162,11 @@
 
 ---
 
+### 第十章节 - K-近邻算法
+  - [电影推荐系统-计算距离](10/distance.py)
+  - [电影推荐系统-预测评分](10/recommendation_system.py)
+
+
 ## 如何使用本仓库
 
 1. 克隆本仓库到你的计算机。
@@ -171,4 +176,4 @@
 
 ## 联系和反馈
 
-如果你有任何问题或者建议，随时通过[我的 YouTube 频道](https://www.youtube.com/channel/UCEQYL59kx9bYBnZm5pdIhEg)留言，或者在这里开一个 Issue。
+如果你有任何问题或者建议，随时通过[我的 B站 频道](https://www.bilibili.com/video/BV1Aw411U7mf/?spm_id_from=333.788&vd_source=42e7dc7e5ebb14d27d2434b00ff63157)留言，或者在这里开一个 Issue。
