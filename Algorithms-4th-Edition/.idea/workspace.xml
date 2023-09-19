@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="055531fe-378b-407b-8ff9-3db9a2bd99fc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Algorithms-4th-Edition.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runConfigurations/1Kints.run.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runConfigurations/2Kints.run.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/analysis_of_algorithms/ThreeSum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-    </list>
+    <list default="true" id="055531fe-378b-407b-8ff9-3db9a2bd99fc" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -89,7 +78,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1695087940791</updated>
-      <workItem from="1695087942673" duration="6997000" />
+      <workItem from="1695087942673" duration="7363000" />
     </task>
     <servers />
   </component>
