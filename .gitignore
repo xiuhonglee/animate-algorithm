@@ -5,6 +5,7 @@
 *.iws
 *.iml
 *.ipr
+target/
 
 out/
 
