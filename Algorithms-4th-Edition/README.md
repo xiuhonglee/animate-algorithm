@@ -14,7 +14,7 @@
 ### 第一章节 - 算法分析(上)
 
 - **测试对象**: 
-  - [【算法】计算文件中三元组和为 0 的数量](./src/analysis_of_algorithms/ThreeSum.java)
+  - [【算法】计算文件中三元组和为 0 的数量](./src/main/java/analysis_of_algorithms/ThreeSum.java)
 
 - **倍率实验**
   - [线性回归-确认数学模型 (python实现)](./scripts/power_law_model_estimator.py)
