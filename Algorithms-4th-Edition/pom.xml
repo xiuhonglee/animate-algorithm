@@ -4,13 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.xiuhong</groupId> <!-- 修改为您的组ID -->
-    <artifactId>algorithms-4th-edition</artifactId> <!-- 修改为您的项目ID -->
-    <version>1.0-SNAPSHOT</version> <!-- 修改为您的项目版本 -->
+    <groupId>com.xiuhong</groupId>
+    <artifactId>algorithms-4th-edition</artifactId>
+    <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>11</maven.compiler.source> <!-- 修改为您的Java版本 -->
-        <maven.compiler.target>11</maven.compiler.target> <!-- 修改为您的Java版本 -->
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
     </properties>
 
     <dependencies>
