@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="ThreeSum-4Kints" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="analysis_of_algorithms.ThreeSum" />
+    <module name="algorithms-4th-edition" />
+    <option name="PROGRAM_PARAMETERS" value="$ModuleFileDir$/resource/data/analysis_of_algorithms/4Kints.txt" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

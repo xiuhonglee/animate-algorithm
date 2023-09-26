@@ -1,8 +1,8 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="8Kints" type="Application" factoryName="Application">
+  <configuration default="false" name="ThreeSum-1Kints" type="Application" factoryName="Application">
     <option name="MAIN_CLASS_NAME" value="analysis_of_algorithms.ThreeSum" />
     <module name="algorithms-4th-edition" />
-    <option name="PROGRAM_PARAMETERS" value="$ModuleFileDir$/resource/data/analysis_of_algorithms/8Kints.txt" />
+    <option name="PROGRAM_PARAMETERS" value="$ModuleFileDir$/resource/data/analysis_of_algorithms/1Kints.txt" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>
