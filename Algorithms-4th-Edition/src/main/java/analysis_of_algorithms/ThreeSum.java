@@ -17,25 +17,6 @@ public class ThreeSum {
     private ThreeSum() { }
 
     /**
-     * 将满足{@code i < j < k}且{@code a[i] + a[j] + a[k] == 0}的(i, j, k)打印到标准输出。
-     *
-     * @param a 整数数组
-     */
-    public static void printAll(int[] a) {
-        int N = a.length;
-        int cnt = 0;
-        for (int i = 0; i < N; i++) {
-            for (int j = i+1; j < N; j++) {
-                for (int k = j+1; k < N; k++) {
-                    if (a[i] + a[j] + a[k] == 0) {
-                        cnt++;
-                    }
-                }
-            }
-        }
-    }
-
-    /**
      * 返回满足{@code i < j < k}且{@code a[i] + a[j] + a[k] == 0}的三元组的数量。
      *
      * @param  a 整数数组
