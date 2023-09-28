@@ -15,10 +15,10 @@ public class ThreeSumFinal {
      * 第二次优化：采用双指针技术
      * 时间复杂度：O(N^2)
      */
-    public static int count(int[] a) {
+    public static long count(int[] a) {
         Arrays.sort(a);
         int N = a.length;
-        int cnt = 0;
+        long cnt = 0;
         for (int i = 0; i < N - 2; i++) {
             int start = i + 1;
             int end = N - 1;
@@ -42,7 +42,7 @@ public class ThreeSumFinal {
         int[] a = in.readAllInts();
 
         Stopwatch timer = new Stopwatch();
-        int count = count(a);
+        long count = count(a);
         StdOut.println("耗时 = " + timer.elapsedTime());
         StdOut.println(count);
     }
