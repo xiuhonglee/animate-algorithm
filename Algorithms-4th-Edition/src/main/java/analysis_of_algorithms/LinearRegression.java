@@ -1,4 +1,4 @@
-package utils;
+package analysis_of_algorithms;
 
 import org.apache.commons.math3.linear.*;
 import org.apache.commons.math3.stat.regression.OLSMultipleLinearRegression;
@@ -47,5 +47,6 @@ public class LinearRegression {
 
         // 输出k和a
         System.out.println("k: " + k + ", a: " + a);
+        // RESULT: k: 2.9182384662267347, a: 0.16830073785100344
     }
 }

@@ -9,7 +9,7 @@
 ## 目录
 
 1. [【 第一章节 - 算法分析(上) 】](#第一章节---算法分析(上))
-1. [【 第二章节 - 算法分析(中) 】](#第一章节---算法分析(中))
+2. [【 第二章节 - 算法分析(中) 】](#第二章节---算法分析(中))
 
 ---
 
@@ -20,20 +20,37 @@
 
 
 - **倍率实验**
-  - [线性回归-确认数学模型 (python实现)](./scripts/power_law_model_estimator.py)
-  - [线性回归-确认数学模型 (java实现)](./src/main/java/utils/LinearRegression.java)
+  - [线性回归-确认数学模型 (python)](scripts/analysis_of_algorithms/power_law_model_estimator.py)
+  - [线性回归-确认数学模型 (java)](./src/main/java/analysis_of_algorithms/LinearRegression.java)
    
 ---
 
 ### 第二章节 - 算法分析(中)
+
+<span style="color:red;font-weight:bold"><i>注意：本章节所有实验数据取决于运行环境，运行结果如有差异请自行判断</i></bold></span>
 
 - **ThreeSum改进**
   - [ThreeSumFast-第一次改进](./src/main/java/analysis_of_algorithms/ThreeSumFast.java)
   - [ThreeSumFinal-第二次改进 (双指针技术)](./src/main/java/analysis_of_algorithms/ThreeSumFinal.java)
   
 
-- **线性回归-计算模型**
-  - [计算ThreeSumFast-模型 (python)](./scripts/ThreeSumFast_model_fitting.py)
-  - [计算ThreeSumFinal-模型 (python)](./scripts/ThreeSumFinal_model_fitting.py)
+- **线性回归-拟合数学模型**
+  - [计算ThreeSumFast-模型 (python)](scripts/analysis_of_algorithms/ThreeSumFast_model_fitting.py)
+  - [计算ThreeSumFast-模型 (java)](scripts/analysis_of_algorithms/ThreeSumFast_model_fitting.py)
 
+  - [计算ThreeSumFinal-模型 (python)](scripts/analysis_of_algorithms/ThreeSumFast_model_fitting.py)
+  - [计算ThreeSumFinal-模型 (java)](src/main/java/analysis_of_algorithms/ThreeSumFinalModelFitting.java)
+
+
+- **实验测试代码**
+  - [倍率实验-验证模型(输入数字随机)](src/main/java/analysis_of_algorithms/DoublingTest.java)
+  - [小数组-验证线性搜索快于二分查找(平均)](src/main/java/analysis_of_algorithms/SearchComparison.java)
+  - [小数组-验证冒泡快于快排(平均)](src/main/java/analysis_of_algorithms/SortComparison.java)
+  - [模拟网络编程案例-批量请求vs分批次请求](src/main/java/analysis_of_algorithms/DatabaseQueryComparison.java)
+
+
+- **曲线图绘制脚本**
+  - [ThreeSumFast 性能曲线](scripts/analysis_of_algorithms/plot_math_model.py)
+  - [ThreeSumFinal 性能曲线](scripts/analysis_of_algorithms/plot_math_model2.py)
+  - [合并绘制到一张图上](scripts/analysis_of_algorithms/plot_math_model3.py)
 
