@@ -54,3 +54,14 @@
   - [ThreeSumFinal 性能曲线](scripts/analysis_of_algorithms/plot_math_model2.py)
   - [合并绘制到一张图上](scripts/analysis_of_algorithms/plot_math_model3.py)
 
+
+### 第三章节 - 算法分析(下)
+
+- **数据类型大小**
+  - [java中常见的数据类型大小](src/main/java/analysis_of_algorithms/MemoryAnalysis.java)
+
+
+- **求第 N 个斐波那契数**
+  - [递归的方式](src/main/java/analysis_of_algorithms/FibonacciRecursive.java)
+  - [迭代法](src/main/java/analysis_of_algorithms/Fibonacci.java)
+  - [矩阵指数法](src/main/java/analysis_of_algorithms/MatrixExponentiation.java)
