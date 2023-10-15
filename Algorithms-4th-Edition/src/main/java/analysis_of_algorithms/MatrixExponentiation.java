@@ -22,7 +22,7 @@ public class MatrixExponentiation {
         System.out.println(fibonacci(9));  // 输出34，第9个斐波那契数
         System.out.println(fibonacci(10)); // 输出55
         System.out.println(fibonacci(0));  // 输出0
-        System.out.println(fibonacci(1));  // 输出1
+        System.out.println(fibonacci(50));  // 输出 12586269025
         System.out.println(fibonacci(10000)); // 输出第10000个斐波那契数
     }
 

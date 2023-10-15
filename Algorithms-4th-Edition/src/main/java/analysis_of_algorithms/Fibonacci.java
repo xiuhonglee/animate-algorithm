@@ -32,6 +32,6 @@ public class Fibonacci {
         System.out.println(fibonacci(1));  // 输出: 1
         System.out.println(fibonacci(5));  // 输出: 5
         System.out.println(fibonacci(10)); // 输出: 55
-        System.out.println(fibonacci(20)); // 输出: 6765
+        System.out.println(fibonacci(50)); // 输出: 12586269025
     }
 }

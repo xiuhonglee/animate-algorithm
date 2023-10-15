@@ -61,6 +61,8 @@
 - **数据类型大小**
   - [java中常见的数据类型大小](src/main/java/analysis_of_algorithms/MemoryAnalysis.java)
 
+- **栈内存**
+  - [估计最大递归深度](src/main/java/analysis_of_algorithms/InfiniteRecursion.java)
 
 - **求第 N 个斐波那契数**
   - [递归的方式](src/main/java/analysis_of_algorithms/FibonacciRecursive.java)
