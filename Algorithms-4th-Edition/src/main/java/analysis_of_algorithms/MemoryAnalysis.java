@@ -1,7 +1,5 @@
 package analysis_of_algorithms;
 
-import java.time.LocalDate;
-
 public class MemoryAnalysis {
 
     /**
