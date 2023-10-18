@@ -1,6 +1,6 @@
 package analysis_of_algorithms;
 
-public class Fibonacci {
+public class FibonacciLoop {
 
     /**
      * 使用直接迭代的方法计算斐波那契数

@@ -10,7 +10,8 @@
 
 1. [【 第一章节 - 算法分析(上) 】](#第一章节---算法分析上)
 2. [【 第二章节 - 算法分析(中) 】](#第二章节---算法分析中)
-2. [【 第三章节 - 算法分析(下) 】](#第三章节---算法分析下)
+3. [【 第三章节 - 算法分析(下) 】](#第三章节---算法分析下)
+3. [【 第四章节 - 算法分析(下) 】](#第章节---优先队列)
 
 ---
 
@@ -68,3 +69,13 @@
   - [递归的方式](src/main/java/analysis_of_algorithms/FibonacciRecursive.java)
   - [迭代法](src/main/java/analysis_of_algorithms/Fibonacci.java)
   - [矩阵指数法](src/main/java/analysis_of_algorithms/MatrixExponentiation.java)
+
+### 第四章节 - 优先队列
+
+- **优先队列 (PQ) 接口**
+  - [PQ 简单接口定义](src/main/java/priority_queues/PriorityQueue.java)
+  
+
+- **简单实现 PQ**
+  * [无序数组-对接口实现 insert / extractMax](src/)
+  * [无序数组](src/main/java/priority_queues/UnorderedArrayPriorityQueue.java)
