@@ -79,11 +79,11 @@
   - [PQ 简单接口定义](src/main/java/priority_queues/PriorityQueue.java)
 
 - **简单实现 PQ**
-  * [无序数组](src/main/java/priority_queues/UnorderedArrayPriorityQueue.java)
+  * [无序数组](src/main/java/priority_queues/UnorderedArrayPQ.java)
   * [无序数组-接口实现(下同)](src/main/java/priority_queues/UnorderedArrayPQImpl.java)
-  * [有序数组](src/main/java/priority_queues/UnorderedArrayPriorityQueue.java)
-  * [无序链表](src/main/java/priority_queues/UnorderedArrayPriorityQueue.java)
-  * [有序链表](src/main/java/priority_queues/UnorderedArrayPriorityQueue.java)
+  * [有序数组](src/main/java/priority_queues/UnorderedArrayPQ.java)
+  * [无序链表](src/main/java/priority_queues/UnorderedArrayPQ.java)
+  * [有序链表](src/main/java/priority_queues/UnorderedArrayPQ.java)
   
 - **性能测试**
   - [测试代码](src/main/java/priority_queues/PerformanceTest.java)
