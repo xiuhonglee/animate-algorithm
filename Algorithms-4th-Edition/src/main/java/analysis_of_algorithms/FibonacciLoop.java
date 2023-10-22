@@ -10,12 +10,12 @@ public class FibonacciLoop {
      * @param n 要计算的斐波那契数的位置
      * @return 第n个斐波那契数
      */
-    public static long fibonacci(int n) {
+    public static int fibonacci(int n) {
         if (n <= 1) return n; // 当n为0或1时，直接返回n
 
-        long prev2 = 0; // 存储n-2位置的斐波那契数
-        long prev1 = 1; // 存储n-1位置的斐波那契数
-        long result = 0; // 存储计算结果
+        int prev2 = 0; // 存储n-2位置的斐波那契数
+        int prev1 = 1; // 存储n-1位置的斐波那契数
+        int result = 0; // 存储计算结果
 
         for (int i = 2; i <= n; i++) {
             result = prev1 + prev2; // 当前斐波那契数是前两个数的和

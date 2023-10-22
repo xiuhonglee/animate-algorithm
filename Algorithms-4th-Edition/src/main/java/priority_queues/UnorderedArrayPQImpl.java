@@ -4,14 +4,14 @@ package priority_queues;
  * Desc: 功能同 UnorderedArrayPQ，这里展示实际对接口编程的具体方法
  */
 
-public class UnorderedArrayPriorityQueue<T extends Comparable<T>> implements PriorityQueue<T> {
+public class UnorderedArrayPQImpl<T extends Comparable<T>> implements PriorityQueue<T> {
 
     private T[] arr;  // 用于存储数据的数组
     private int n;    // 数组中的实际元素个数
 
     // 初始化一个给定大小的优先队列
     @SuppressWarnings("unchecked")
-    public UnorderedArrayPriorityQueue(int capacity) {
+    public UnorderedArrayPQImpl(int capacity) {
         arr = (T[]) new Comparable[capacity];
         n = 0;
     }
@@ -66,39 +66,27 @@ public class UnorderedArrayPriorityQueue<T extends Comparable<T>> implements Pri
         return arr[maxIndex];
     }
 
+    @Override
+    public int size() { return n; }
+
+    @Override
+    public boolean isEmpty() { return n == 0; }
+
     // 下面的方法都未实现，可以根据需要进行实现
     @Override
-    public T min() {
-        throw new UnsupportedOperationException("Method not implemented");
-    }
+    public T extractMin() { return null; }
 
     @Override
-    public T extractMin() {
-        throw new UnsupportedOperationException("Method not implemented");
-    }
+    public T min() { return null; }
 
     @Override
-    public int size() {
-        return n;
-    }
+    public void merge(PriorityQueue<T> other) {}
 
     @Override
-    public boolean isEmpty() {
-        return n == 0;
-    }
-
-    @Override
-    public void merge(PriorityQueue<T> other) {
-        throw new UnsupportedOperationException("Method not implemented");
-    }
-
-    @Override
-    public void clear() {
-        throw new UnsupportedOperationException("Method not implemented");
-    }
+    public void clear() {}
 
     public static void main(String[] args) {
-        UnorderedArrayPriorityQueue<Integer> pq = new UnorderedArrayPriorityQueue<>(10);
+        UnorderedArrayPQImpl<Integer> pq = new UnorderedArrayPQImpl<>(10);
         pq.insert(5);
         pq.insert(3);
         pq.insert(7);
