@@ -17,6 +17,8 @@ public class PerformanceTest {
         /**  注意：下面测试时间比较长（大约 7 分钟左右），请耐心等待  **/
         /**  注意：下面测试时间比较长（大约 7 分钟左右），请耐心等待  **/
 
+        /**  注意：你也可以注释掉一部分代码，每次少测试几个  **/
+
         System.out.println("测试无序数组实现的优先队列 : ");
         testPerformance(UnorderedArrayPQImpl.class, testCount, sizes);
         /**
