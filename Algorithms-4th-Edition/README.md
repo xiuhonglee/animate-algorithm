@@ -86,7 +86,7 @@
   * [有序链表](src/main/java/priority_queues/UnorderedArrayPQ.java)
   
 
-- **二叉堆实现 P!**
+- **二叉堆实现 PQ**
   - [二叉堆实现-简单实现](src/main/java/priority_queues/BinaryHeapPQ.java)
   - [索引二叉堆实现-简单实现](src/main/java/priority_queues/IndexedBinaryHeap.java)
   - [java标准库实现-java.util.PriorityQueue](src/main/java/priority_queues/PriorityQueueExample.java)
