@@ -98,7 +98,16 @@
    
 ### 第五章节 - 堆排序
 
-  * [堆排序-最初实现版本](src/main/java/heap_sort/HeapSortOrigin.java)
-  * [堆排序-Floyd改进版本](src/main/java/heap_sort/HeapSortFloyd.java)
+- **两种建堆 (大堆) 方式**
+  * [自上而下](src/main/java/heap_sort/HeapTopDown.java)
+  * [自下而上-常用](src/main/java/heap_sort/HeapTopDown.java)
+
+- **两种堆排序方式(用大堆进行升序排序)**
+  * [最初实现版本](src/main/java/heap_sort/HeapSortOrigin.java)
+  * [Floyd 改进版本-较少比较次数](src/main/java/heap_sort/HeapSortFloyd.java)
+
+- **对两种堆排序进行性能测试**
+  * [输入-普通随机整数](src/main/java/heap_sort/HeapSortPerformanceTest.java)
+  * [输入-长字符串](src/main/java/heap_sort/HeapSortStringPerformanceTest.java)
 
 

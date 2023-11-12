@@ -6,7 +6,7 @@ public class HeapSortPerformanceTest {
 
     public static void main(String[] args) {
         // 定义不同的测试规模
-        int[] sizes = {100000, 200000, 400000, 800000, 1600000}; // 修改了规模，以避免内存溢出
+        int[] sizes = {100000, 200000, 400000, 800000, 1600000}; // 倍率实验
 
         // 对每个规模进行测试
         for (int size : sizes) {
