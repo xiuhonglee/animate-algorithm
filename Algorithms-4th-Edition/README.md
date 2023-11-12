@@ -12,6 +12,7 @@
 2. [【 第二章节 - 算法分析(中) 】](#第二章节---算法分析中)
 3. [【 第三章节 - 算法分析(下) 】](#第三章节---算法分析下)
 4. [【 第四章节 - 优先队列 】](#第四章节---优先队列)
+5. [【 第五章节 - 堆排序 】](#第五章节---堆排序)
 
 ---
 
@@ -94,3 +95,10 @@
 - **性能测试**
   - [测试代码，测试用例为【实验题 2.4.36】](src/main/java/priority_queues/PerformanceTest.java)
   - [测试用例同上，单独为java标准库 PQ 用的测试代码](src/main/java/priority_queues/PerformanceTest2.java)
+   
+### 第五章节 - 堆排序
+
+  * [堆排序-最初实现版本](src/main/java/heap_sort/HeapSortOrigin.java)
+  * [堆排序-Floyd改进版本](src/main/java/heap_sort/HeapSortFloyd.java)
+
+
