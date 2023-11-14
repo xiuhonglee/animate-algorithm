@@ -2,10 +2,15 @@ package heap_sort;
 
 import java.util.Arrays;
 
-public class HeapSortFloyd {
+public class HeapSortFloydCount {
+
+    private static int comparisonCount = 0;
+    private static int swapCount = 0;
 
     // 泛化的堆排序函数
     public static <T extends Comparable<T>> void heapSort(T[] arr) {
+        comparisonCount = 0;
+        swapCount = 0;
 
         int n = arr.length;
 
@@ -43,6 +48,7 @@ public class HeapSortFloyd {
             if (rightChild >= n) {
                 child = leftChild; // 只有左子节点
             } else {
+                comparisonCount++; // 对左右子节点进行比较
                 child = arr[leftChild].compareTo(arr[rightChild]) > 0 ? leftChild : rightChild;
             }
 
@@ -55,9 +61,11 @@ public class HeapSortFloyd {
 
         // 可能的上浮操作
         while (parent > 0 && arr[parent].compareTo(arr[(parent - 1) / 2]) > 0) {
+            comparisonCount++; // 对子节点和父节点进行比较
             T swap = arr[parent];
             arr[parent] = arr[(parent - 1) / 2];
             arr[(parent - 1) / 2] = swap;
+            swapCount++;
             parent = (parent - 1) / 2;
         }
     }
@@ -69,10 +77,12 @@ public class HeapSortFloyd {
         int r = 2 * i + 2;
 
         if (l < n && arr[l].compareTo(arr[largest]) > 0) {
+            comparisonCount++; // 对子节点和父节点进行比较
             largest = l;
         }
 
         if (r < n && arr[r].compareTo(arr[largest]) > 0) {
+            comparisonCount++; // 对子节点和父节点进行比较
             largest = r;
         }
 
@@ -80,6 +90,7 @@ public class HeapSortFloyd {
             T swap = arr[i];
             arr[i] = arr[largest];
             arr[largest] = swap;
+            swapCount++;
 
             heapify(arr, n, largest);
         }
@@ -91,14 +102,16 @@ public class HeapSortFloyd {
         heapSort(intArr);
         System.out.println("Sorted integer array (Floyd):");
         System.out.println(Arrays.toString(intArr));
+        System.out.println("Comparisons: " + comparisonCount + ", Swaps: " + swapCount);
 
         // 字符串数组示例
         String[] stringArr = {"banana", "apple", "cherry", "date"};
         heapSort(stringArr);
         System.out.println("Sorted string array (Floyd):");
         System.out.println(Arrays.toString(stringArr));
+        System.out.println("Comparisons: " + comparisonCount + ", Swaps: " + swapCount);
 
-        // 创建一个包含40个随机整数的数组
+        // 创建一个包含20个随机整数的数组
         Integer[] testArray = new Integer[40];
         for (int i = 0; i < testArray.length; i++) {
             testArray[i] = (int) (Math.random() * 100); // 生成0到99之间的随机整数
@@ -106,6 +119,7 @@ public class HeapSortFloyd {
         heapSort(testArray);
         System.out.println("Sorted integer array (Floyd):");
         System.out.println(Arrays.toString(testArray));
+        System.out.println("Comparisons: " + comparisonCount + ", Swaps: " + swapCount);
 
     }
 }

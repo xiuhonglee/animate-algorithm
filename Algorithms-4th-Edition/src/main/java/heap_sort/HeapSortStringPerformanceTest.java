@@ -6,8 +6,7 @@ public class HeapSortStringPerformanceTest {
 
     public static void main(String[] args) {
         // 定义不同的测试规模
-//        int[] sizes = {200000, 400000, 600000, 800000, 1000000};  // 对于长字符串，规模应适当减小
-        int[] sizes = {1000000};  // 对于长字符串，规模应适当减小
+        int[] sizes = {200000, 400000, 600000};  // 对于长字符串，规模应适当减小
 
         // 对每个规模进行测试
         for (int size : sizes) {
@@ -16,21 +15,22 @@ public class HeapSortStringPerformanceTest {
 
             // 运行5次实验并取平均值
             for (int i = 0; i < 5; i++) {
-                String[] originalArray = generateRandomStringArray(size, 500); // 生成长度为100的随机字符串
-
-                // 测试优化前的堆排序
-                String[] arrayBeforeOptimization = originalArray.clone();
-                long startTime = System.currentTimeMillis();
-                HeapSortOrigin.heapSort(arrayBeforeOptimization);
-                long endTime = System.currentTimeMillis();
-                totalTimeBeforeOptimization += (endTime - startTime);
+                String[] originalArray = generateRandomStringArray(size, 500); // 生成长度为 N 的随机字符串
 
                 // 测试优化后的堆排序
                 String[] arrayAfterOptimization = originalArray.clone();
-                startTime = System.currentTimeMillis();
+                long startTime = System.currentTimeMillis();
                 HeapSortFloyd.heapSort(arrayAfterOptimization);
-                endTime = System.currentTimeMillis();
+                long endTime = System.currentTimeMillis();
                 totalTimeAfterOptimization += (endTime - startTime);
+
+                // 测试优化前的堆排序
+                String[] arrayBeforeOptimization = originalArray.clone();
+
+                startTime = System.currentTimeMillis();
+                HeapSortStandard.heapSort(arrayBeforeOptimization);
+                endTime = System.currentTimeMillis();
+                totalTimeBeforeOptimization += (endTime - startTime);
             }
 
             long averageTimeBeforeOptimization = totalTimeBeforeOptimization / 5;

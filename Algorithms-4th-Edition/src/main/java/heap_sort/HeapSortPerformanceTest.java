@@ -20,7 +20,7 @@ public class HeapSortPerformanceTest {
                 // 测试优化前的堆排序
                 Integer[] arrayBeforeOptimization = originalArray.clone();
                 long startTime = System.currentTimeMillis();
-                HeapSortOrigin.heapSort(arrayBeforeOptimization); // 确保这里使用的是泛型版本
+                HeapSortStandard.heapSort(arrayBeforeOptimization); // 确保这里使用的是泛型版本
                 long endTime = System.currentTimeMillis();
                 totalTimeBeforeOptimization += (endTime - startTime);
 
