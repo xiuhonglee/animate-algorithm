@@ -103,8 +103,12 @@
   * [自下而上-常用](src/main/java/heap_sort/HeapTopDown.java)
 
 - **两种堆排序方式(用大堆进行升序排序)**
-  * [最初实现版本](src/main/java/heap_sort/HeapSortOrigin.java)
+  * [标准版堆排序实现](src/main/java/heap_sort/HeapSortOrigin.java)
   * [Floyd 改进版本-较少比较次数](src/main/java/heap_sort/HeapSortFloyd.java)
+
+- **计算Floyd优化后和标准对排序比较、交换次数**
+  * [统计标准实现元素比较/交换次数](src/main/java/heap_sort/HeapSortStandardCount.java) 
+  * [统计Floyd优化后元素比较/交换次数](src/main/java/heap_sort/HeapSortFloydCount.java) 
 
 - **对两种堆排序进行性能测试**
   * [输入-普通随机整数](src/main/java/heap_sort/HeapSortPerformanceTest.java)
