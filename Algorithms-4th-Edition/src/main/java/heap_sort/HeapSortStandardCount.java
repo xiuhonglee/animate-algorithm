@@ -1,6 +1,9 @@
 package heap_sort;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Random;
+import java.util.Set;
 
 public class HeapSortStandardCount {
     // 用于计数的静态变量
@@ -58,29 +61,64 @@ public class HeapSortStandardCount {
         swapCount++;
     }
 
-    public static void main(String[] args) {
-        // 整数数组示例
-        Integer[] intArr = {12, 11, 13, 5, 6, 7};
-        heapSort(intArr);
-        System.out.println("Sorted integer array (standard):");
-        System.out.println(Arrays.toString(intArr));
-        System.out.println("Comparisons: " + comparisonCount + ", Swaps: " + swapCount);
-
-        // 字符串数组示例
-        String[] stringArr = {"banana", "apple", "cherry", "date"};
-        heapSort(stringArr);
-        System.out.println("Sorted string array (standard):");
-        System.out.println(Arrays.toString(stringArr));
-        System.out.println("Comparisons: " + comparisonCount + ", Swaps: " + swapCount);
-
-        // 创建一个包含40个随机整数的数组
-        Integer[] testArray = new Integer[40];
-        for (int i = 0; i < testArray.length; i++) {
-            testArray[i] = (int) (Math.random() * 100); // 生成0到99之间的随机整数
+    // 生成随机不重复数组的方法
+    private static Integer[] generateUniqueRandomArray(int size, int range) {
+        Random random = new Random();
+        Set<Integer> set = new HashSet<>();
+        while (set.size() < size) {
+            set.add(random.nextInt(range));
         }
-        heapSort(testArray);
-        System.out.println("Sorted integer array (standard):");
-        System.out.println(Arrays.toString(testArray));
+        return set.toArray(new Integer[0]);
+    }
+
+    // 测试排序并打印结果的方法
+    private static void testSort(Integer[] array, String sizeLabel) {
+        heapSort(array);
+        // 为简洁起见，不打印整个数组
+        System.out.println("Sorted array size " + sizeLabel + ": [First 10 elements]: " + Arrays.toString(Arrays.copyOf(array, 10)));
         System.out.println("Comparisons: " + comparisonCount + ", Swaps: " + swapCount);
+    }
+
+    public static void main(String[] args) {
+
+        /**
+         * 本机运行结果：
+         * 规模为 10^3: 比较次数 11828, 交换次数 9119
+         * 规模为 10^4: 比较次数 167383, 交换次数 124517
+         * 规模为 10^5: 比较次数 2177017, 交换次数 1581495
+         * 规模为 10^6: 比较次数 26680099, 交换次数 19078774
+         */
+        // 测试N=10^3大小的数组
+        Integer[] array1K = generateUniqueRandomArray(1_000, 10_000);
+        testSort(array1K, "10^3");
+
+        // 测试N=10^4大小的数组
+        Integer[] array10K = generateUniqueRandomArray(10_000, 100_000);
+        testSort(array10K, "10^4");
+
+        // 测试N=10^5大小的数组
+        Integer[] array100K = generateUniqueRandomArray(100_000, 1_000_000);
+        testSort(array100K, "10^5");
+
+        // 测试N=10^6大小的数组
+        Integer[] array1M = generateUniqueRandomArray(1_000_000, 10_000_000);
+        testSort(array1M, "10^6");
+
+        /**
+         * 注意：下面是10^9大小的随机数组，你需要提前给程序分配足够多的堆内存，运行时间会比较漫长 !!!
+         * 注意：下面是10^9大小的随机数组，你需要提前给程序分配足够多的堆内存，运行时间会比较漫长 !!!
+         * 注意：下面是10^9大小的随机数组，你需要提前给程序分配足够多的堆内存，运行时间会比较漫长 !!!
+         */
+//        final int SIZE = 1_000_000_000; // 10^9
+//        // 生成大数组
+//        Integer[] largeArray = new Integer[SIZE];
+//        Random random = new Random();
+//        for (int i = 0; i < SIZE; i++) {
+//            largeArray[i] = random.nextInt(Integer.MAX_VALUE);
+//        }
+//        heapSort(largeArray);
+//        // 打印一些排序后的数据进行验证（例如前10个元素）
+//        System.out.println(Arrays.toString(Arrays.copyOf(largeArray, 10)));
+//        System.out.println("Comparisons: " + comparisonCount + ", Swaps: " + swapCount);
     }
 }
