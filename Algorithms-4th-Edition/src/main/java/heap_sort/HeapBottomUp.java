@@ -32,7 +32,7 @@ public class HeapBottomUp {
     }
 
     public static void main(String[] args) {
-        int[] arrTopDown = {3, 1, 4, 1, 5, 9, 2, 6, 5};
+        int[] arrTopDown = {19, 100, 1, 8, 3, 25, 4, 36, 17};
         int[] arrBottomUp = arrTopDown.clone();
 
         HeapBottomUp.heapifyBottomUp(arrBottomUp);

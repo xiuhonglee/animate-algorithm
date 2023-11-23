@@ -28,7 +28,7 @@ public class HeapTopDown {
 
     // 测试用例
     public static void main(String[] args) {
-        int[] arrTopDown = {3, 1, 4, 1, 5, 9, 2, 6, 5};
+        int[] arrTopDown = {19, 100, 1, 8, 3, 25, 4, 36, 17};
         HeapTopDown.heapifyTopDown(arrTopDown);
 
         System.out.println("Heap built Top-Down: " + Arrays.toString(arrTopDown));

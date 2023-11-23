@@ -120,6 +120,9 @@ public class HeapSortFloydCount {
     public static void main(String[] args) {
 
         /**
+
+         * 不知道为啥??? 比较次数只优化到70%左右，可能还有优化空间
+
          * 本机运行结果：
          * 规模为 10^3: 比较次数 8866, 交换次数 978
          * 规模为 10^4: 比较次数 121134, 交换次数 9339
