@@ -4,6 +4,7 @@
 
 
 > 说明：本仓库中的代码可能会跟本书的官网代码有出入，本书中完整的代码请移步 [官网](https://algs4.cs.princeton.edu/code/) 
+> [完整的课后习题答案](https://github.com/reneargento/algorithms-sedgewick-wayne/tree/master)
 
 
 ## 目录
