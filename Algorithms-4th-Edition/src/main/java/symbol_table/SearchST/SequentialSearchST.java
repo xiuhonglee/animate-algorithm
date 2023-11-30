@@ -151,6 +151,11 @@ public class SequentialSearchST<Key, Value> {
         return queue;
     }
 
+    // 新增方法来获取 VisualAccumulator 实例
+    public VisualAccumulator getVisualAccumulator() {
+        return this.va;
+    }
+
 
     /**
      * Unit tests the {@code SequentialSearchST} data type.

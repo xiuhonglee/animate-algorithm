@@ -1,7 +1,7 @@
 package symbol_table.SearchST;
 
-import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
+import symbol_table.tools.VisualAccumulator;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -25,6 +25,7 @@ public class FrequencyCounter {
         int minlen = Integer.parseInt(args[0]); // 最小单词长度作为第一个参数
         String fileName = args[1]; // 文件路径作为第二个参数
         SequentialSearchST<String, Integer> st = new SequentialSearchST<>();
+        VisualAccumulator va = st.getVisualAccumulator();
 
         // 从文件中读取数据
         try (Scanner scanner = new Scanner(new File(fileName))) {
@@ -47,6 +48,7 @@ public class FrequencyCounter {
         // 找到出现频率最高的单词
         String max = "";
         st.put(max, 0);
+
         for (String word : st.keys()) {
             if (st.get(word) > st.get(max)) max = word;
         }
@@ -54,5 +56,10 @@ public class FrequencyCounter {
         StdOut.println(max + " " + st.get(max));
         StdOut.println("不同的单词数量 = " + distinct);
         StdOut.println("总单词数量 = " + words);
+
+        // 打印最后一个红点的值(平均值)
+        if (va != null) {
+            System.out.println("最后一个平均值: " + va.toString());
+        }
     }
 }
