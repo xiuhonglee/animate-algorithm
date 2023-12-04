@@ -3,8 +3,7 @@
 这里包含了与我的 B站 视频系列“[动画解析《算法-第四版》](https://space.bilibili.com/472759461/channel/collectiondetail?sid=1719279&ctype=0)”相关的所有代码。每个章节都有对应的 java 代码示例。
 
 
-> 说明：本仓库中的代码可能会跟本书的官网代码有出入，本书中完整的代码请移步 [官网](https://algs4.cs.princeton.edu/code/) 
-> [完整的课后习题答案](https://github.com/reneargento/algorithms-sedgewick-wayne/tree/master)
+> 说明：本仓库中的代码可能会跟本书的官网代码有出入，本书中完整的代码请移步 [☞ 官网](https://algs4.cs.princeton.edu/code/)，完整的[ ☞ 课后习题答案](https://github.com/reneargento/algorithms-sedgewick-wayne/tree/master)
 
 
 ## 目录
