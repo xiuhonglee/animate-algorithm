@@ -124,4 +124,4 @@
 - **符号表初级实现**
   - [无序链表](src/main/java/symbol_table/SearchST/SequentialSearchST.java)
   - [有序数组](src/main/java/symbol_table/SearchST/BinarySearchST.java)
-- **二叉搜索树实现**
+- **二叉查找树实现**
