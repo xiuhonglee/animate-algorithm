@@ -5,6 +5,21 @@
 
 > 说明：本仓库中的代码可能会跟本书的官网代码有出入，本书中完整的代码请移步 [☞ 官网](https://algs4.cs.princeton.edu/code/)，完整的[ ☞ 课后习题答案](https://github.com/reneargento/algorithms-sedgewick-wayne/tree/master)
 
+## 运行代码
+
+* 需要有一点 java 基础
+
+```shell
+1. 下载仓库代码
+
+2. 用 IntelliJ IDEA 编辑器打开 Algorithms-4th-Edition 项目
+
+3. 安装依赖, 这是一个 maven 项目
+
+4. 所有代码可直接在 IDEA 编辑器中运行
+   部分代码的运行参数存储在 /runConfigurations 下
+   可通过 Edit Configurations... 自行修改
+```
 
 ## 目录
 
