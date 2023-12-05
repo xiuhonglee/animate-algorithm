@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="TestSequentialSearchST" type="Application" factoryName="Application" nameIsGenerated="true">
-    <option name="MAIN_CLASS_NAME" value="symbol_table.SearchST.TestSequentialSearchST" />
+    <option name="MAIN_CLASS_NAME" value="symbol_table.search_st.TestSequentialSearchST" />
     <module name="algorithms-4th-edition" />
     <option name="PROGRAM_PARAMETERS" value="8 $ModuleFileDir$/resource/data/symbol_table/tale.txt" />
     <extension name="coverage">

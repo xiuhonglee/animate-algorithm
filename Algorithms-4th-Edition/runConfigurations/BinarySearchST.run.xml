@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="BinarySearchST" type="Application" factoryName="Application">
-    <option name="MAIN_CLASS_NAME" value="symbol_table.SearchST.BinarySearchST" />
+    <option name="MAIN_CLASS_NAME" value="symbol_table.search_st.BinarySearchST" />
     <module name="algorithms-4th-edition" />
     <option name="PROGRAM_PARAMETERS" value="$ModuleFileDir$/resource/data/symbol_table/tinyST.txt" />
     <method v="2">

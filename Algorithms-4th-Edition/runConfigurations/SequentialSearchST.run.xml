@@ -1,11 +1,11 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="SequentialSearchST" type="Application" factoryName="Application" nameIsGenerated="true">
-    <option name="MAIN_CLASS_NAME" value="symbol_table.SearchST.SequentialSearchST" />
+    <option name="MAIN_CLASS_NAME" value="symbol_table.search_st.SequentialSearchST" />
     <module name="algorithms-4th-edition" />
     <option name="PROGRAM_PARAMETERS" value="$ModuleFileDir$/resource/data/symbol_table/tinyST.txt" />
     <extension name="coverage">
       <pattern>
-        <option name="PATTERN" value="symbol_table.SearchST.*" />
+        <option name="PATTERN" value="symbol_table.search_st.*" />
         <option name="ENABLED" value="true" />
       </pattern>
     </extension>

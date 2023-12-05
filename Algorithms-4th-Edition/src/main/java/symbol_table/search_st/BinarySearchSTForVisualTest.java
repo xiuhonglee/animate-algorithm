@@ -1,18 +1,17 @@
-package symbol_table.SearchST;
+package symbol_table.search_st;
 
 import edu.princeton.cs.algs4.Queue;
 import symbol_table.tools.VisualAccumulator;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.NoSuchElementException;
-import java.util.Scanner;
 
 public class BinarySearchSTForVisualTest<Key extends Comparable<Key>, Value> {
     private static final int INIT_CAPACITY = 2;
     private Key[] keys;
     private Value[] vals;
     private int n = 0;
+    private int trials = 14350;
+    private int max = 5800;
 
     private VisualAccumulator va;
 
@@ -21,7 +20,7 @@ public class BinarySearchSTForVisualTest<Key extends Comparable<Key>, Value> {
      */
     public BinarySearchSTForVisualTest() {
         this(INIT_CAPACITY);
-        va = new VisualAccumulator(14350, 5740);
+        va = new VisualAccumulator(trials, max);
     }
 
 
@@ -32,7 +31,7 @@ public class BinarySearchSTForVisualTest<Key extends Comparable<Key>, Value> {
     public BinarySearchSTForVisualTest(int capacity) {
         keys = (Key[]) new Comparable[capacity];
         vals = (Value[]) new Object[capacity];
-        va = new VisualAccumulator(14350, 5740);
+        va = new VisualAccumulator(trials, max);
     }
 
     // 重设底层数组的大小
@@ -110,7 +109,7 @@ public class BinarySearchSTForVisualTest<Key extends Comparable<Key>, Value> {
         while (lo <= hi) {
             compares++;
             int mid = lo + (hi - lo) / 2;
-            accesses++; // 访问 keys[mid]
+//            accesses++; // 访问 keys[mid]
             int cmp = key.compareTo(keys[mid]);
             if (cmp < 0) hi = mid - 1;
             else if (cmp > 0) lo = mid + 1;
@@ -152,11 +151,11 @@ public class BinarySearchSTForVisualTest<Key extends Comparable<Key>, Value> {
         if (n == keys.length) resize(2 * keys.length);
 
         for (int j = n; j > i; j--)  {
-            accesses += 2; // 访问 keys[j-1] 和 vals[j-1]
+            accesses += 1; // 访问 keys[j-1] 和 vals[j-1]
             keys[j] = keys[j-1];
             vals[j] = vals[j-1];
         }
-        accesses += 2; // 访问 keys[i] 和 vals[i]
+        accesses += 1; // 访问 keys[i] 和 vals[i]
         keys[i] = key;
         vals[i] = val;
         n++;

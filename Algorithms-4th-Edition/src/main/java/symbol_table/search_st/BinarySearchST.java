@@ -1,4 +1,4 @@
-package symbol_table.SearchST;
+package symbol_table.search_st;
 
 import edu.princeton.cs.algs4.Queue;
 

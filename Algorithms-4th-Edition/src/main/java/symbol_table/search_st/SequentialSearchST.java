@@ -1,8 +1,6 @@
-package symbol_table.SearchST;
+package symbol_table.search_st;
 
 import edu.princeton.cs.algs4.Queue;
-import edu.princeton.cs.algs4.StdIn;
-import edu.princeton.cs.algs4.StdOut;
 
 import java.io.File;
 import java.io.FileNotFoundException;
