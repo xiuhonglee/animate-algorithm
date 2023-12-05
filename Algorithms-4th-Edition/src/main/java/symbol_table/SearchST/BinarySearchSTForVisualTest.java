@@ -1,32 +1,38 @@
 package symbol_table.SearchST;
 
 import edu.princeton.cs.algs4.Queue;
+import symbol_table.tools.VisualAccumulator;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
-public class BinarySearchST<Key extends Comparable<Key>, Value> {
+public class BinarySearchSTForVisualTest<Key extends Comparable<Key>, Value> {
     private static final int INIT_CAPACITY = 2;
     private Key[] keys;
     private Value[] vals;
     private int n = 0;
 
+    private VisualAccumulator va;
+
     /**
      * 初始化一个空的符号表。
      */
-    public BinarySearchST() {
+    public BinarySearchSTForVisualTest() {
         this(INIT_CAPACITY);
+        va = new VisualAccumulator(14350, 5740);
     }
+
 
     /**
      * 使用指定的初始容量初始化一个空的符号表。
      * @param capacity 最大容量
      */
-    public BinarySearchST(int capacity) {
+    public BinarySearchSTForVisualTest(int capacity) {
         keys = (Key[]) new Comparable[capacity];
         vals = (Value[]) new Object[capacity];
+        va = new VisualAccumulator(14350, 5740);
     }
 
     // 重设底层数组的大小
@@ -82,7 +88,7 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
     public Value get(Key key) {
         if (key == null) throw new IllegalArgumentException("argument to get() is null");
         if (isEmpty()) return null;
-        int i = rank(key);
+        int i = rank(key)[0];
         if (i < n && keys[i].compareTo(key) == 0) return vals[i];
         return null;
     }
@@ -94,18 +100,23 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
      * @return 符号表中小于{@code key}的键的数量
      * @throws IllegalArgumentException 如果{@code key}是{@code null}
      */
-    public int rank(Key key) {
+    public int[] rank(Key key) {
         if (key == null) throw new IllegalArgumentException("argument to rank() is null");
 
-        int lo = 0, hi = n-1;
+        int lo = 0, hi = n - 1;
+        int compares = 0;
+        int accesses = 0;
+
         while (lo <= hi) {
+            compares++;
             int mid = lo + (hi - lo) / 2;
+            accesses++; // 访问 keys[mid]
             int cmp = key.compareTo(keys[mid]);
             if (cmp < 0) hi = mid - 1;
             else if (cmp > 0) lo = mid + 1;
-            else return mid;
+            else return new int[]{mid, compares, accesses};
         }
-        return lo;
+        return new int[]{lo, compares, accesses};
     }
 
     /**
@@ -124,27 +135,37 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
             return;
         }
 
-        int i = rank(key);
+        int[] rankResult = rank(key);
+        int i = rankResult[0];
+        int compares = rankResult[1];
+        int accesses = rankResult[2];
 
         // 如果键已经存在于表中
         if (i < n && keys[i].compareTo(key) == 0) {
             vals[i] = val;
+            accesses++; // 更新 vals[i]
+            va.addDataValue(compares + accesses);
             return;
         }
 
         // 插入新的键值对
-        if (n == keys.length) resize(2*keys.length);
+        if (n == keys.length) resize(2 * keys.length);
 
         for (int j = n; j > i; j--)  {
+            accesses += 2; // 访问 keys[j-1] 和 vals[j-1]
             keys[j] = keys[j-1];
             vals[j] = vals[j-1];
         }
+        accesses += 2; // 访问 keys[i] 和 vals[i]
         keys[i] = key;
         vals[i] = val;
         n++;
 
+        va.addDataValue(compares + accesses);
         assert check();
     }
+
+
 
     /**
      * 从这个符号表中移除指定的键及其关联的值（如果键在符号表中）。
@@ -157,7 +178,7 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
         if (isEmpty()) return;
 
         // 计算排名
-        int i = rank(key);
+        int i = rank(key)[0];
 
         // 如果键不在表中
         if (i == n || keys[i].compareTo(key) != 0) {
@@ -248,7 +269,7 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
      */
     public Key floor(Key key) {
         if (key == null) throw new IllegalArgumentException("argument to floor() is null");
-        int i = rank(key);
+        int i = rank(key)[0];
         if (i < n && key.compareTo(keys[i]) == 0) return keys[i];
         if (i == 0) throw new NoSuchElementException("argument to floor() is too small");
         else return keys[i - 1];
@@ -264,7 +285,7 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
      */
     public Key ceiling(Key key) {
         if (key == null) throw new IllegalArgumentException("argument to ceiling() is null");
-        int i = rank(key);
+        int i = rank(key)[0];
         if (i == n) throw new NoSuchElementException("argument to ceiling() is too large");
         else return keys[i];
     }
@@ -282,8 +303,8 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
         if (hi == null) throw new IllegalArgumentException("second argument to size() is null");
 
         if (lo.compareTo(hi) > 0) return 0;
-        if (contains(hi)) return rank(hi) - rank(lo) + 1;
-        else              return rank(hi) - rank(lo);
+        if (contains(hi)) return rank(hi)[0] - rank(lo)[0] + 1;
+        else              return rank(hi)[0] - rank(lo)[0];
     }
 
     /**
@@ -310,9 +331,9 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
 
         Queue<Key> queue = new Queue<Key>();
         if (lo.compareTo(hi) > 0) return queue;
-        for (int i = rank(lo); i < rank(hi); i++)
+        for (int i = rank(lo)[0]; i < rank(hi)[0]; i++)
             queue.enqueue(keys[i]);
-        if (contains(hi)) queue.enqueue(keys[rank(hi)]);
+        if (contains(hi)) queue.enqueue(keys[rank(hi)[0]]);
         return queue;
     }
 
@@ -334,45 +355,13 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
     // 检查rank(select(i))是否等于i
     private boolean rankCheck() {
         for (int i = 0; i < size(); i++)
-            if (i != rank(select(i))) return false;
+            if (i != rank(select(i))[0]) return false;
         for (int i = 0; i < size(); i++)
-            if (keys[i].compareTo(select(rank(keys[i]))) != 0) return false;
+            if (keys[i].compareTo(select(rank(keys[i])[0])) != 0) return false;
         return true;
     }
-
-    /**
-     * 对{@code BinarySearchST}数据类型进行单元测试。
-     *
-     * @param args 命令行参数
-     */
-    public static void main(String[] args) {
-
-        BinarySearchST<String, Integer> st = new BinarySearchST<String, Integer>();
-
-        // 检查是否提供了文件名
-        if (args.length < 1) {
-            System.out.println("Usage: java BinarySearchST <filename>");
-            return;
-        }
-
-        // 读取文件
-        String filename = args[0];
-        File file = new File(filename);
-
-        try (Scanner scanner = new Scanner(file)) {
-            int i = 0;
-            while (scanner.hasNext()) {
-                String key = scanner.next();
-                st.put(key, i++);
-            }
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found: " + filename);
-            return;
-        }
-
-        // 输出符号表中的键和值
-        for (String s : st.keys()) {
-            System.out.println(s + " " + st.get(s));
-        }
+    // 新增方法来获取 VisualAccumulator 实例
+    public VisualAccumulator getVisualAccumulator() {
+        return this.va;
     }
 }

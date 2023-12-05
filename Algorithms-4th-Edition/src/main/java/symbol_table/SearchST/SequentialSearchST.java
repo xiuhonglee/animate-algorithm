@@ -3,77 +3,73 @@ package symbol_table.SearchST;
 import edu.princeton.cs.algs4.Queue;
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
-import symbol_table.tools.VisualAccumulator;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 public class SequentialSearchST<Key, Value> {
-    private int n;           // number of key-value pairs
-    private Node first;      // the linked list of key-value pairs
+    private int n;           // 键值对的数量
+    private Node first;      // 键值对的链表
 
-    // a helper linked list data type
+    // 辅助的链表数据类型
     private class Node {
         private Key key;
         private Value val;
         private Node next;
 
-        public Node(Key key, Value val, Node next)  {
-            this.key  = key;
-            this.val  = val;
+        public Node(Key key, Value val, Node next) {
+            this.key = key;
+            this.val = val;
             this.next = next;
         }
     }
 
-    private VisualAccumulator va;  // 用于性能可视化的累加器
-
     /**
-     * Initializes an empty symbol table.
+     * 初始化一个空的符号表。
      */
     public SequentialSearchST() {
-        // 假设 1000 是最大的操作次数，10 是 y 轴的最大值
-        va = new VisualAccumulator(14350, 5740);
     }
 
     /**
-     * Returns the number of key-value pairs in this symbol table.
+     * 返回符号表中的键值对数量。
      *
-     * @return the number of key-value pairs in this symbol table
+     * @return 符号表中的键值对数量
      */
     public int size() {
         return n;
     }
 
     /**
-     * Returns true if this symbol table is empty.
+     * 判断符号表是否为空。
      *
-     * @return {@code true} if this symbol table is empty;
-     *         {@code false} otherwise
+     * @return 如果符号表为空返回true，否则返回false
      */
     public boolean isEmpty() {
         return size() == 0;
     }
 
     /**
-     * Returns true if this symbol table contains the specified key.
+     * 判断符号表是否包含指定的键。
      *
-     * @param  key the key
-     * @return {@code true} if this symbol table contains {@code key};
-     *         {@code false} otherwise
-     * @throws IllegalArgumentException if {@code key} is {@code null}
+     * @param key 键
+     * @return 如果符号表包含key则返回true，否则返回false
+     * @throws IllegalArgumentException 如果key为null
      */
     public boolean contains(Key key) {
-        if (key == null) throw new IllegalArgumentException("argument to contains() is null");
+        if (key == null) throw new IllegalArgumentException("键为null");
         return get(key) != null;
     }
 
     /**
-     * Returns the value associated with the given key in this symbol table.
+     * 根据键获取对应的值。
      *
-     * @param  key the key
-     * @return the value associated with the given key if the key is in the symbol table
-     *     and {@code null} if the key is not in the symbol table
-     * @throws IllegalArgumentException if {@code key} is {@code null}
+     * @param key 键
+     * @return 如果键存在，返回相应的值；如果不存在，返回null
+     * @throws IllegalArgumentException 如果key为null
      */
     public Value get(Key key) {
-        if (key == null) throw new IllegalArgumentException("argument to get() is null");
+        if (key == null) throw new IllegalArgumentException("键为null");
         for (Node x = first; x != null; x = x.next) {
             if (key.equals(x.key))
                 return x.val;
@@ -82,50 +78,43 @@ public class SequentialSearchST<Key, Value> {
     }
 
     /**
-     * Inserts the specified key-value pair into the symbol table, overwriting the old
-     * value with the new value if the symbol table already contains the specified key.
-     * Deletes the specified key (and its associated value) from this symbol table
-     * if the specified value is {@code null}.
+     * 向符号表中插入或更新键值对。
+     * 如果值为null，则删除键。
      *
-     * @param  key the key
-     * @param  val the value
-     * @throws IllegalArgumentException if {@code key} is {@code null}
+     * @param key 键
+     * @param val 值
+     * @throws IllegalArgumentException 如果key为null
      */
     public void put(Key key, Value val) {
-        if (key == null) throw new IllegalArgumentException("first argument to put() is null");
+        if (key == null) throw new IllegalArgumentException("键为null");
         if (val == null) {
             delete(key);
             return;
         }
 
-        int compares = 0;
         for (Node x = first; x != null; x = x.next) {
-            compares++;
             if (key.equals(x.key)) {
                 x.val = val;
-                va.addDataValue(compares);  // 绘制灰色点
                 return;
             }
         }
         first = new Node(key, val, first);
         n++;
-        va.addDataValue(compares);  // 添加灰点
     }
 
     /**
-     * Removes the specified key and its associated value from this symbol table
-     * (if the key is in this symbol table).
+     * 从符号表中删除指定的键及其关联的值。
      *
-     * @param  key the key
-     * @throws IllegalArgumentException if {@code key} is {@code null}
+     * @param key 键
+     * @throws IllegalArgumentException 如果key为null
      */
     public void delete(Key key) {
-        if (key == null) throw new IllegalArgumentException("argument to delete() is null");
+        if (key == null) throw new IllegalArgumentException("键为null");
         first = delete(first, key);
     }
 
-    // delete key in linked list beginning at Node x
-    // warning: function call stack too large if table is large
+    // 从以x为首的链表中删除键
+    // 注意：如果表很大，函数调用栈可能过大
     private Node delete(Node x, Key key) {
         if (x == null) return null;
         if (key.equals(x.key)) {
@@ -136,39 +125,50 @@ public class SequentialSearchST<Key, Value> {
         return x;
     }
 
-
     /**
-     * Returns all keys in the symbol table as an {@code Iterable}.
-     * To iterate over all of the keys in the symbol table named {@code st},
-     * use the foreach notation: {@code for (Key key : st.keys())}.
+     * 返回符号表中所有键的Iterable集合。
+     * 使用for-each遍历符号表的所有键。
      *
-     * @return all keys in the symbol table
+     * @return 符号表中的所有键
      */
-    public Iterable<Key> keys()  {
+    public Iterable<Key> keys() {
         Queue<Key> queue = new Queue<Key>();
         for (Node x = first; x != null; x = x.next)
             queue.enqueue(x.key);
         return queue;
     }
 
-    // 新增方法来获取 VisualAccumulator 实例
-    public VisualAccumulator getVisualAccumulator() {
-        return this.va;
-    }
-
-
     /**
-     * Unit tests the {@code SequentialSearchST} data type.
+     * 对SequentialSearchST数据类型进行单元测试。
      *
-     * @param args the command-line arguments
+     * @param args 命令行参数
      */
     public static void main(String[] args) {
         SequentialSearchST<String, Integer> st = new SequentialSearchST<String, Integer>();
-        for (int i = 0; !StdIn.isEmpty(); i++) {
-            String key = StdIn.readString();
-            st.put(key, i);
+// 确保命令行参数中包含文件路径
+        if (args.length < 1) {
+            System.out.println("Usage: java SequentialSearchST <filename>");
+            return;
         }
+
+        try {
+            // 使用Scanner从文件中读取
+            File file = new File(args[0]);
+            Scanner scanner = new Scanner(file);
+            int i = 0;
+            while (scanner.hasNext()) {
+                String key = scanner.next();
+                st.put(key, i++);
+            }
+            scanner.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found: " + args[0]);
+            return;
+        }
+
+        // 打印所有键及其对应的值
         for (String s : st.keys())
-            StdOut.println(s + " " + st.get(s));
+            System.out.println(s + " " + st.get(s));
     }
 }
+

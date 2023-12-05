@@ -7,10 +7,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class FrequencyCounter {
+public class FCounterBinarySearchST {
 
     // 不要实例化这个类。
-    private FrequencyCounter() {
+    private FCounterBinarySearchST() {
     }
 
     /**
@@ -24,7 +24,7 @@ public class FrequencyCounter {
         int distinct = 0, words = 0;
         int minlen = Integer.parseInt(args[0]); // 最小单词长度作为第一个参数
         String fileName = args[1]; // 文件路径作为第二个参数
-        SequentialSearchSTForVisualTest<String, Integer> st = new SequentialSearchSTForVisualTest<>();
+        BinarySearchSTForVisualTest<String, Integer> st = new BinarySearchSTForVisualTest<>();
         VisualAccumulator va = st.getVisualAccumulator();
 
         // 从文件中读取数据
