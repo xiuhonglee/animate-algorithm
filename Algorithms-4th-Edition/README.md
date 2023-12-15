@@ -29,6 +29,7 @@
 4. [【 第四章节 - 优先队列 】](#第四章节---优先队列)
 5. [【 第五章节 - 堆排序 】](#第五章节---堆排序)
 6. [【 第六章节 - 二叉查找树 】](#第六章节---二叉查找树)
+7. [【 第七章节 - 平衡二叉树 】](#第七章节---平衡二叉树)
 
 ---
 
@@ -145,5 +146,8 @@
   - [可视化-有序数组实现](src/main/java/symbol_table/search_st/FCounterBinarySearchST.java)
 
 - **二叉查找树实现**
-  - [递归实现插入、查找](src/main/java/symbol_table/binary_search_tree/RecursiveBST.java)
-  - [非递归实现插入、查找](src/main/java/symbol_table/binary_search_tree/IterativeBST.java)
+  - [递归实现插入、查找、删除](src/main/java/symbol_table/binary_search_tree/RecursiveBST.java)
+  - [非递归实现插入、查找、删除](src/main/java/symbol_table/binary_search_tree/IterativeBST.java)
+
+### 第七章 - 平衡二叉树
+  - [AVL树](src/main/java/balanced_binary_tree/AVLTree.java)

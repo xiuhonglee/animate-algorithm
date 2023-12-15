@@ -124,9 +124,12 @@ public class RecursiveBST<Key extends Comparable<Key>, Value> implements Ordered
             Node t = node;
 
             /**
-             * 下面一般有两种处理方法(我们用的是 第1种 方法)：
-             * 方法 1（常用）：找到右子树中的最小节点，用它来替换当前节点
+             * 下面一般有三种处理方法(我们用的是 第1种 方法)：
+
+             * 方法 1：找到右子树中的最小节点，用它来替换当前节点
              * 方法 2：你也可以找到左子树最大的结点来替换被删除的节点
+             * 方法 3：随机从左子树选最大或右子树选最小的节点（推荐!!!）
+
              */
             node = min(t.right);
             // 删除右子树中的最小节点
@@ -169,6 +172,20 @@ public class RecursiveBST<Key extends Comparable<Key>, Value> implements Ordered
         if (node.left == null) return node.right;
         node.left = deleteMin(node.left);
         node.size = 1 + size(node.left) + size(node.right);
+        return node;
+    }
+
+    private Node deleteMax(Node node) {
+        // 如果节点为空，表示已经到达叶子节点，返回null
+        if (node == null) return null;
+
+        // 如果节点的右子树为空，表示当前节点就是最大节点，直接返回null
+        if (node.right == null) return node.left;
+
+        // 否则，继续向右子树查找最大节点
+        node.right = deleteMax(node.right);
+        // 更新当前节点的大小
+        node.size = size(node.left) + size(node.right) + 1;
         return node;
     }
 

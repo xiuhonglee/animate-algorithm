@@ -109,22 +109,50 @@ public class IterativeBST<Key extends Comparable<Key>, Value> implements Ordered
         root = delete(root, key);
     }
 
-    private Node delete(Node node, Key key) {
-        if (node == null) return null;
+    private Node delete(Node root, Key key) {
+        Node parent = null;
+        Node current = root;
 
-        int cmp = key.compareTo(node.key);
-        if (cmp < 0) node.left = delete(node.left, key);
-        else if (cmp > 0) node.right = delete(node.right, key);
-        else {
-            if (node.left == null) return node.right;
-            if (node.right == null) return node.left;
-            Node t = node;
-            node = min(t.right);
-            node.right = deleteMin(t.right);
-            node.left = t.left;
+        // 查找要删除的节点
+        while (current != null && !current.key.equals(key)) {
+            parent = current;
+            if (key.compareTo(current.key) < 0) {
+                current = current.left;
+            } else {
+                current = current.right;
+            }
         }
-        node.size = size(node.left) + size(node.right) + 1;
-        return node;
+
+        if (current == null) {
+            return root; // 没有找到要删除的节点
+        }
+
+        // 处理要删除的节点有两个子节点的情况
+        if (current.left != null && current.right != null) {
+            Node minRight = min(current.right);
+            Key minValue = minRight.key;
+            delete(root, minValue); // 删除最小节点
+            current.key = minValue; // 用最小节点的值替换当前节点的值
+        } else {
+            Node child = (current.left != null) ? current.left : current.right;
+
+            if (parent == null) {
+                return child; // 删除的是根节点
+            }
+
+            if (current == parent.left) {
+                parent.left = child;
+            } else {
+                parent.right = child;
+            }
+        }
+
+        // 如果需要维护节点数量，更新父节点的节点数量
+        if (parent != null) {
+            parent.size = size(parent.left) + size(parent.right) + 1;
+        }
+
+        return root;
     }
 
     @Override
