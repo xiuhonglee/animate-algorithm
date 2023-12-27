@@ -151,3 +151,4 @@
 
 ### 第七章 - 平衡二叉树
   - [AVL树](src/main/java/balanced_binary_tree/AVLTree.java)
+  - [AVL实现的符号表-官方实现](src/main/java/balanced_binary_tree/AVLTreeST.java)

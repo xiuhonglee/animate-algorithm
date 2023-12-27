@@ -90,7 +90,7 @@ public class RecursiveBST<Key extends Comparable<Key>, Value> implements Ordered
         // 如果查找键小于当前节点键，继续在左子树中查找
         if (cmp < 0) return get(node.left, key);
 
-        // 如果查找键大于当前节点键，在右子树中继续查找
+            // 如果查找键大于当前节点键，在右子树中继续查找
         else if (cmp > 0) return get(node.right, key);
 
         // 如果查找键等于当前节点键，返回该节点的值
@@ -125,11 +125,9 @@ public class RecursiveBST<Key extends Comparable<Key>, Value> implements Ordered
 
             /**
              * 下面一般有三种处理方法(我们用的是 第1种 方法)：
-
              * 方法 1：找到右子树中的最小节点，用它来替换当前节点
              * 方法 2：你也可以找到左子树最大的结点来替换被删除的节点
              * 方法 3：随机从左子树选最大或右子树选最小的节点（推荐!!!）
-
              */
             node = min(t.right);
             // 删除右子树中的最小节点

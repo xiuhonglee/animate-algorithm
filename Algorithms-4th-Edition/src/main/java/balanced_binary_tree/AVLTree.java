@@ -6,11 +6,14 @@ public class AVLTree {
     public class Node {
         int key;        // 节点的键
         int height;     // 节点的高度
+        int balanceFactor; // 节点的平衡因子
         Node left;      // 指向左子节点
         Node right;     // 指向右子节点
 
         Node(int key) {
             this.key = key;
+            this.height = 0;
+            this.balanceFactor = 0;
         }
     }
 
@@ -62,6 +65,14 @@ public class AVLTree {
         return rebalance(root);
     }
 
+    // 更新节点的高度和平衡因子
+    private void updateHeightAndBalance(Node n) {
+        int leftHeight = height(n.left);
+        int rightHeight = height(n.right);
+        n.height = 1 + Math.max(leftHeight, rightHeight);
+        n.balanceFactor = rightHeight - leftHeight;
+    }
+
     // 私有删除方法：从指定节点下删除键
     private Node delete(Node node, int key) {
         if (node == null) {
@@ -97,25 +108,38 @@ public class AVLTree {
 
     // 重新平衡节点
     private Node rebalance(Node z) {
-        updateHeight(z);
-        int balance = getBalance(z);
+        // 更新节点z的高度和平衡因子
+        updateHeightAndBalance(z);
+        // 获取z的平衡因子
+        int balance = z.balanceFactor;
+
+        // 检测并修正RR（右右）或RL（右左）不平衡的情况
         if (balance > 1) {
+            // RR情况：z的右子树比左子树高，且z的右子节点的右子树比左子树高
             if (height(z.right.right) > height(z.right.left)) {
-                z = rotateLeft(z);
+                z = rotateLeft(z); // 进行左旋转
             } else {
-                z.right = rotateRight(z.right);
-                z = rotateLeft(z);
-            }
-        } else if (balance < -1) {
-            if (height(z.left.left) > height(z.left.right)) {
-                z = rotateRight(z);
-            } else {
-                z.left = rotateLeft(z.left);
-                z = rotateRight(z);
+                // RL情况：z的右子树比左子树高，但z的右子节点的左子树比右子树高
+                z.right = rotateRight(z.right); // 先对z的右子节点进行右旋转
+                z = rotateLeft(z); // 然后对z进行左旋转
             }
         }
+        // 检测并修正LL（左左）或LR（左右）不平衡的情况
+        else if (balance < -1) {
+            // LL情况：z的左子树比右子树高，且z的左子节点的左子树比右子树高
+            if (height(z.left.left) > height(z.left.right)) {
+                z = rotateRight(z); // 进行右旋转
+            } else {
+                // LR情况：z的左子树比右子树高，但z的左子节点的右子树比左子树高
+                z.left = rotateLeft(z.left); // 先对z的左子节点进行左旋转
+                z = rotateRight(z); // 然后对z进行右旋转
+            }
+        }
+
+        // 返回经过旋转调整后的新根节点
         return z;
     }
+
 
     // 右旋转
     private Node rotateRight(Node y) {
@@ -123,8 +147,9 @@ public class AVLTree {
         Node z = x.right;
         x.right = y;
         y.left = z;
-        updateHeight(y);
-        updateHeight(x);
+
+        updateHeightAndBalance(y);
+        updateHeightAndBalance(x);
         return x;
     }
 
@@ -134,8 +159,9 @@ public class AVLTree {
         Node z = x.left;
         x.left = y;
         y.right = z;
-        updateHeight(y);
-        updateHeight(x);
+
+        updateHeightAndBalance(y);
+        updateHeightAndBalance(x);
         return x;
     }
 
