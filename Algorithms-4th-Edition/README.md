@@ -28,9 +28,8 @@
 3. [【 第三章节 - 算法分析(下) 】](#第三章节---算法分析下)
 4. [【 第四章节 - 优先队列 】](#第四章节---优先队列)
 5. [【 第五章节 - 堆排序 】](#第五章节---堆排序)
-6. [【 第六章节 - 二叉查找树 】](#第六章节---二叉查找树)
-7. [【 第七章节 - 平衡二叉树 】](#第七章节---平衡二叉树)
-
+6. [【 第六章节 - 二叉搜索树 】](#第六章节---二叉搜索树)
+7. [【 第七章节 - 平衡二叉搜索树 】](#第七章节---平衡二叉搜索树)
 ---
 
 ### 第一章节 - 算法分析(上)
@@ -132,7 +131,7 @@
   * [输入-长字符串](src/main/java/heap_sort/HeapSortStringPerformanceTest.java)
 
 
-### 第六章节 - 二叉查找树
+### 第六章节 - 二叉搜索树
 
 - **符号表接口定义**
   - [编程接口 API - (key extends Comparable)](src/main/java/symbol_table/OrderedSymbolTable.java)
@@ -145,10 +144,14 @@
   - [可视化-无序链表实现](src/main/java/symbol_table/search_st/FrequencyCounter.java)
   - [可视化-有序数组实现](src/main/java/symbol_table/search_st/FCounterBinarySearchST.java)
 
-- **二叉查找树实现**
+- **二叉搜索树实现**
   - [递归实现插入、查找、删除](src/main/java/symbol_table/binary_search_tree/RecursiveBST.java)
   - [非递归实现插入、查找、删除](src/main/java/symbol_table/binary_search_tree/IterativeBST.java)
 
-### 第七章 - 平衡二叉树
+### 第七章 - 平衡二叉搜素树
+
   - [AVL树](src/main/java/balanced_binary_tree/AVLTree.java)
   - [AVL实现的符号表-官方实现](src/main/java/balanced_binary_tree/AVLTreeST.java)
+
+  - [2-3树](https://github.com/swapnil0399/2-3-Trees/tree/master)
+  - [红黑树实现符号表-官方实现](src/main/java/balanced_binary_tree/RedBlackBST.java)

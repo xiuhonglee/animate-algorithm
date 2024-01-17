@@ -27,7 +27,6 @@ class AVLTree {
     }
 
     // 一个工具函数，用于对以y为根的子树进行右旋
-    // 参见上文给出的图示。
     Node rightRotate(Node y) {
         Node x = y.left;
         Node T2 = x.right;
@@ -93,8 +92,8 @@ class AVLTree {
         /** 情况1: 左左情况 (T1, T2, T3和T4是子树)
          *        z                                       y
          *       / \                                    /   \
-         *      y   T4          右旋 (z)               x      z
-         *     / \          - - - - - - - - ->      /  \    /  \
+         *      y   T4     Right Rotate (z)           x      z
+         *     / \        - - - - - - - - - ->      /  \    /  \
          *    x   T3                               T1  T2  T3  T4
          *   / \
          * T1   T2
@@ -103,11 +102,11 @@ class AVLTree {
             return rightRotate(node);
 
         /** 情况2: 右右情况
-         *    z                                y
+         *    x                                y
          *   /  \                            /   \
-         *  T1   y     Left Rotate(z)       z      x
+         *  T1   y     Left Rotate(z)       x      z
          *      /  \   - - - - - - - ->    / \    / \
-         *     T2   x                     T1  T2 T3  T4
+         *     T2   z                     T1  T2 T3  T4
          *         / \
          *       T3  T4
          */
@@ -115,11 +114,11 @@ class AVLTree {
             return leftRotate(node);
 
         /** 情况3: 左右情况
-         *       z                               z                           x
+         *       z                               z                           y
          *      / \                            /   \                        /  \
-         *     y   T4  Left Rotate (y)        x    T4  Right Rotate(z)    y      z
+         *     x   T4  Left Rotate (y)        y    T4  Right Rotate(z)    x      z
          *    / \      - - - - - - - - ->    /  \      - - - - - - - ->  / \    / \
-         *  T1   x                          y    T3                    T1  T2 T3  T4
+         *  T1   y                          x    T3                    T1  T2 T3  T4
          *      / \                        / \
          *    T2   T3                    T1   T2
          */
@@ -129,11 +128,11 @@ class AVLTree {
         }
 
         /** 情况4: 右左情况
-         *    z                            z                            x
+         *    x                            x                            y
          *   / \                          / \                          /  \
-         * T1   y   Right Rotate (y)    T1   x      Left Rotate(z)   z      y
+         * T1   z   Right Rotate (y)    T1   y      Left Rotate(z)   x      z
          *     / \  - - - - - - - - ->     /  \   - - - - - - - ->  / \    / \
-         *    x   T4                      T2   y                  T1  T2  T3  T4
+         *    y   T4                      T2   z                  T1  T2  T3  T4
          *   / \                              /  \
          * T2   T3                           T3   T4
          */
