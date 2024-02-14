@@ -159,4 +159,6 @@
 
 ### 第八章 - 最小生成树
 
-  - [prim 算法](src/main/java/minimum_spanning_trees/LazyPrimMST.java)
+  - [prim算法 (lazy 版本)](src/main/java/minimum_spanning_trees/LazyPrimMST.java)
+  - [prim算法 (eager 版本)](src/main/java/minimum_spanning_trees/PrimMST.java)
+  - [kruskal算法](src/main/java/minimum_spanning_trees/KruskalMST.java)
