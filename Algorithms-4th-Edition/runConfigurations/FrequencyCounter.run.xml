@@ -2,7 +2,7 @@
   <configuration default="false" name="FrequencyCounter" type="Application" factoryName="Application">
     <option name="MAIN_CLASS_NAME" value="symbol_table.search_st.FrequencyCounter" />
     <module name="algorithms-4th-edition" />
-    <option name="PROGRAM_PARAMETERS" value="8 $ModuleFileDir$/resource/data/symbol_table/tale.txt" />
+    <option name="PROGRAM_PARAMETERS" value="8 src/main/resources/symbol_table/tale.txt" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>
