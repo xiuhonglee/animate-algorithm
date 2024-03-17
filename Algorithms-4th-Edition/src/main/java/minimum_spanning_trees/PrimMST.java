@@ -22,8 +22,8 @@ public class PrimMST {
         for (int v = 0; v < G.V(); v++)
             distTo[v] = Double.POSITIVE_INFINITY;
 
-        for (int v = 0; v < G.V(); v++)      // 从每个顶点开始运行，以找到
-            if (!marked[v]) prim(G, v);      // 最小生成森林
+        for (int v = 0; v < G.V(); v++)
+            if (!marked[v]) prim(G, v);
 
         // 检查最优条件
         assert check(G);

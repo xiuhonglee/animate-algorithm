@@ -11,7 +11,7 @@ public class LazyPrimMST {
     private MinPQ<Edge> pq;      // 具有一个端点在树中的边
 
     /**
-     * 计算一个加权边图的最小生成树（或森林）。
+     * 计算一个加权边图的最小生成树（或森林）
      * @param G 加权边图
      */
     public LazyPrimMST(EdgeWeightedGraph G) {
@@ -41,7 +41,6 @@ public class LazyPrimMST {
     }
 
     // 如果另一个端点还没有被扫描，则将所有与v相邻的边e加入到pq中
-
     private void scan(EdgeWeightedGraph G, int v) {
         assert !marked[v];
         marked[v] = true;
