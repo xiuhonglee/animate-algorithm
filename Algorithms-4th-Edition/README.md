@@ -31,6 +31,7 @@
 6. [【 第六章节 - 二叉搜索树 】](#第六章节---二叉搜索树)
 7. [【 第七章节 - 平衡二叉搜索树 】](#第七章节---平衡二叉搜索树)
 8. [【 第八章节 - 最小生成树 】](#第八章节---最小生成树)
+8. [【 第九章节 - KMP算法 】](#第九章节---KMP算法)
 ---
 
 ### 第一章节 - 算法分析(上)
@@ -149,7 +150,7 @@
   - [递归实现插入、查找、删除](src/main/java/symbol_table/binary_search_tree/RecursiveBST.java)
   - [非递归实现插入、查找、删除](src/main/java/symbol_table/binary_search_tree/IterativeBST.java)
 
-### 第七章 - 平衡二叉搜索树
+### 第七章节 - 平衡二叉搜索树
 
   - [AVL树](src/main/java/balanced_binary_tree/AVLTree.java)
   - [AVL实现的符号表-官方实现](src/main/java/balanced_binary_tree/AVLTreeST.java)
@@ -157,8 +158,11 @@
   - [2-3树](https://github.com/swapnil0399/2-3-Trees/tree/master)
   - [红黑树实现符号表-官方实现](src/main/java/balanced_binary_tree/RedBlackBST.java)
 
-### 第八章 - 最小生成树
+### 第八章节 - 最小生成树
 
   - [prim算法 (lazy 版本)](src/main/java/minimum_spanning_trees/LazyPrimMST.java)
   - [prim算法 (eager 版本)](src/main/java/minimum_spanning_trees/PrimMST.java)
   - [kruskal算法](src/main/java/minimum_spanning_trees/KruskalMST.java)
+
+### 第九章节 - KMP算法
+  - [KMP 算法（DFA官方实现)](src/main/java/kmp/KMP.java)
