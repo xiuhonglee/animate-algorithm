@@ -31,7 +31,7 @@
 6. [【 第六章节 - 二叉搜索树 】](#第六章节---二叉搜索树)
 7. [【 第七章节 - 平衡二叉搜索树 】](#第七章节---平衡二叉搜索树)
 8. [【 第八章节 - 最小生成树 】](#第八章节---最小生成树)
-8. [【 第九章节 - KMP算法 】](#第九章节---KMP算法)
+9. [【 第九章节 - 子字符串查找 】](#第九章节---子字符串查找)
 ---
 
 ### 第一章节 - 算法分析(上)
@@ -164,5 +164,6 @@
   - [prim算法 (eager 版本)](src/main/java/minimum_spanning_trees/PrimMST.java)
   - [kruskal算法](src/main/java/minimum_spanning_trees/KruskalMST.java)
 
-### 第九章节 - KMP算法
-  - [KMP 算法（DFA官方实现)](src/main/java/kmp/KMP.java)
+### 第九章节 - 子字符串字符串查找
+  - [KMP 算法（DFA官方实现)](src/main/java/substr_search/KMP.java)
+  - [简化版 BM 算法（只实现坏字符规则）- 官方实现](src/main/java/substr_search/BoyerMoore.java)
